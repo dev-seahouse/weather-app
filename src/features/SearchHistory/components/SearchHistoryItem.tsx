@@ -11,14 +11,17 @@ import {
   useSetLocationInfo,
 } from "@/stores/weather/useWeatherStore.selectors";
 import { formatISODateString } from "@/utils/formatISODateString";
+import { useQueryClient } from "@tanstack/react-query";
 
 export const SearchHistoryItem: React.FC<{
   history: SearchHistoryItemType;
 }> = ({ history }) => {
   const deleteHistory = useDeleteSearchHistory();
   const updateLocation = useSetLocationInfo();
+  const queryClient = useQueryClient();
 
   function handleSearchButtonClick() {
+    void queryClient.invalidateQueries({ queryKey: ["getWeather"] });
     updateLocation(history.locationInfo);
   }
 
