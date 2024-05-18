@@ -1,7 +1,7 @@
 ## How to start
-npm install -g pnpm
-pnpm install
-pnpm start
+- npm install -g pnpm
+- pnpm install
+- pnpm start
 
 ## Storybook
 pnpm run storybook
