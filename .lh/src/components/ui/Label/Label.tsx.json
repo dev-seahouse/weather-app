@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/components/ui/Label/Label.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1715938739445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715946631488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,17 @@\n import * as React from \"react\";\n \n-import { cva, type VariantProps } from \"class-variance-authority\";\n+import {\n+  cva,\n+  type VariantProps,\n+} from \"class-variance-authority\";\n \n import { cn } from \"@/utils/cn\";\n import * as LabelPrimitive from \"@radix-ui/react-label\";\n \n const labelVariants = cva(\n   `\n-    text-sm font-medium leading-none\n+    text-sm font-normal leading-none\n \n     peer-disabled:cursor-not-allowed peer-disabled:opacity-70\n   `,\n );\n"
+                }
+            ],
+            "date": 1715938739445,
+            "name": "Commit-0",
+            "content": "import * as React from \"react\";\n\nimport {\n  cva,\n  type VariantProps,\n} from \"class-variance-authority\";\n\nimport { cn } from \"@/utils/cn\";\nimport * as LabelPrimitive from \"@radix-ui/react-label\";\n\nconst labelVariants = cva(\n  \"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\"\n)\n\nconst Label = React.forwardRef<\n  React.ElementRef<typeof LabelPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &\n    VariantProps<typeof labelVariants>\n>(({ className, ...props }, ref) => (\n  <LabelPrimitive.Root\n    ref={ref}\n    className={cn(labelVariants(), className)}\n    {...props}\n  />\n))\nLabel.displayName = LabelPrimitive.Root.displayName\n\nexport { Label };\n"
+        }
+    ]
+}

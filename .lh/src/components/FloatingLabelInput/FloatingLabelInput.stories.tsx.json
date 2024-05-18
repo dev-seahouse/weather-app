@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/FloatingLabelInput/FloatingLabelInput.stories.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1715939506373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715939552943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n-import { FloatingLabelInput } from \"@/components/FloatingLabelInput/FloatingLabelInput\";\n+import {\n+  FloatingLabelInput,\n+} from \"@/components/FloatingLabelInput/FloatingLabelInput\";\n \n-export default {};\n const meta = {\n   title: \"UI/FloatingLabelInput\",\n   component: FloatingLabelInput,\n   parameters: {\n@@ -19,4 +20,9 @@\n       ],\n     },\n   },\n } satisfies Meta<typeof Input>;\n+export default meta;\n+\n+type Story = StoryObj<typeof meta>;\n+\n+export const Primary: Story = {};\n"
+                },
+                {
+                    "date": 1715939559437,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n-import { FloatingLabelInput } from \"@/components/FloatingLabelInput/FloatingLabelInput\";\n+import {\n+  FloatingLabelInput,\n+} from \"@/components/FloatingLabelInput/FloatingLabelInput\";\n \n const meta = {\n   title: \"UI/FloatingLabelInput\",\n   component: FloatingLabelInput,\n@@ -17,9 +19,9 @@\n         },\n       ],\n     },\n   },\n-} satisfies Meta<typeof Input>;\n+} satisfies Meta<typeof FloatingLabelInput>;\n export default meta;\n \n type Story = StoryObj<typeof meta>;\n \n"
+                }
+            ],
+            "date": 1715939506373,
+            "name": "Commit-0",
+            "content": "import {\n  FloatingLabelInput,\n} from \"@/components/FloatingLabelInput/FloatingLabelInput\";\n\nconst meta = {\n  title: \"UI/FloatingLabelInput\",\n  component: FloatingLabelInput,\n  parameters: {\n    backgrounds: {\n      default: \"white\",\n      values: [\n        {\n          name: \"white\",\n          value: \"#fff\",\n        },\n        {\n          name: \"theme\",\n          value: \"#6a44c8\",\n        },\n      ],\n    },\n  },\n} satisfies Meta<typeof Input>;\n"
+        }
+    ]
+}

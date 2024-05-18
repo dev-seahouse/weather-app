@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/store/weather.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1715973886332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715973896463,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,3 @@\n+import { create } from \"zustand\";\n \n export const useWeatherStore = create<>\n"
+                },
+                {
+                    "date": 1715973936003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,24 @@\n import { create } from \"zustand\";\n \n+export interface WeatherData {\n+  // Define the shape of the weather data returned by getCurrentWeather\n+  temp: number;\n+  description: string;\n+  // Add other fields as necessary based on your API response\n+}\n+\n+export interface SearchHistoryItem<T> {\n+  option: Option<T>;\n+  timestamp: number;\n+  weather: WeatherData;\n+}\n+\n+export interface WeatherStore<T> {\n+  searchHistory: SearchHistoryItem<T>[];\n+  currentWeatherIndex: number;\n+  addSearchHistory: (option: Option<T>) => Promise<void>;\n+  removeSearchHistory: (index: number) => void;\n+  getCurrentWeather: () => SearchHistoryItem<T> | null;\n+  setCurrentWeatherIndex: (index: number) => void;\n+}\n export const useWeatherStore = create<>;\n"
+                },
+                {
+                    "date": 1715973948239,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n import { create } from \"zustand\";\n \n+import { Option } from \"@/components/ui/AutoComplete/AutoComplete.types\";\n+\n export interface WeatherData {\n   // Define the shape of the weather data returned by getCurrentWeather\n   temp: number;\n   description: string;\n"
+                }
+            ],
+            "date": 1715973886332,
+            "name": "Commit-0",
+            "content": "\nexport const useWeatherStore = create<>\n"
+        }
+    ]
+}

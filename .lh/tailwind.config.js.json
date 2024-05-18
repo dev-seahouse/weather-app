@@ -1,0 +1,30 @@
+{
+    "sourceFile": "tailwind.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1715792408965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715792522675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n /** @type {import('tailwindcss').Config} */\n export default {\n-  content: ['./src/**/*.{js,jsx,ts,tsx}'],\n+  content: ['./src/**/*.{js,jsx,ts,tsx}',\"index.html\"],\n   theme: {\n     extend: {},\n   },\n   plugins: [],\n"
+                },
+                {
+                    "date": 1715792580533,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n /** @type {import('tailwindcss').Config} */\n export default {\n-  content: ['./src/**/*.{js,jsx,ts,tsx}', \"index.html\"],\n+  content: [],\n   theme: {\n     extend: {},\n   },\n   plugins: [],\n"
+                },
+                {
+                    "date": 1715792673022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n /** @type {import('tailwindcss').Config} */\n export default {\n-  content: ['./src/**/*.{js,jsx,ts,tsx}', \"index.html\"],\n+  content: ['./src/**/*.{js,jsx,ts,tsx}',],\n   theme: {\n     extend: {},\n   },\n   plugins: [],\n"
+                }
+            ],
+            "date": 1715792408965,
+            "name": "Commit-0",
+            "content": "/** @type {import('tailwindcss').Config} */\nexport default {\n  content: ['./src/**/*.{js,jsx,ts,tsx}'],\n  theme: {\n    extend: {},\n  },\n  plugins: [],\n};\n"
+        }
+    ]
+}

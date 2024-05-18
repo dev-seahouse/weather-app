@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/components/ui/AutoComplete/AutoComplete.types.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1715876842728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715907722376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n export interface Option {\n-  id: string;\n+  value: string;\n   label: string;\n }\n \n export interface AutoCompleteProps {\n"
+                },
+                {
+                    "date": 1715907901205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n export interface Option {\n   label: string;\n   value: string;\n+  meta?: any;\n }\n \n export interface AutoCompleteProps {\n   placeholder?: string;\n"
+                },
+                {
+                    "date": 1715907908958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n export interface Option {\n   label: string;\n   value: string;\n-  meta?: any;\n+  meta?: any; // used to hold additional data\n }\n \n export interface AutoCompleteProps {\n   placeholder?: string;\n"
+                }
+            ],
+            "date": 1715876842728,
+            "name": "Commit-0",
+            "content": "export interface Option {\n  id: string;\n  label: string;\n}\n\nexport interface AutoCompleteProps {\n  placeholder?: string;\n  fetchSuggestions: (query: string) => Promise<Option[]>;\n  minLength?: number;\n  onOptionSelected: (option: Option) => void;\n  debounceTimeout: number;\n  inputClassName?: string;\n  popoverClassName?: string;\n  optionClassName?: string;\n  spinnerClassName?: string;\n  errorClassName?: string;\n}\n"
+        }
+    ]
+}

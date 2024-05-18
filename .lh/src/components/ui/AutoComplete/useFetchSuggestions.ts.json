@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/components/ui/AutoComplete/useFetchSuggestions.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1715875398792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715875412349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n-export function fetchSuggestions (query:string, fetchSuggestions: (query)=> ) {\n+export function fetchSuggestions (query:string, fetchSuggestions: (query)=>Promise<any[]>, minLength = 2) ) {\n \n }\n"
+                },
+                {
+                    "date": 1715875424245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n-export function fetchSuggestions (query:string, fetchSuggestions: (query)=>Promise<any[]>, minLength = 2) ) {\n+export function fetchSuggestions (query:string, fetchSuggestions: (query)=>Promise<any[]>, minLength = 2)) {\n \n }\n"
+                },
+                {
+                    "date": 1715875455989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n export function fetchSuggestions (query:string, fetchSuggestions: (query)=>Promise<any[]>, minLength = 2)) {\n-\n+  return useQuery([\"auto\"])\n }\n"
+                },
+                {
+                    "date": 1715876141368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n-export function fetchSuggestions (query:string, fetchSuggestions: (query)=>Promise<any[]>, minLength = 2)) {\n-  return useQuery([\"auto\"])\n+export function useFetchSuggestions (id:string, query: string) {\n+  \n }\n"
+                },
+                {
+                    "date": 1715876148814,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,6 @@\n-export function useFetchSuggestions (id:string, query: string) {\n-  \n-}\n+export function useFetchSuggestions(\n+  id: string,\n+  query: string,\n+  fetchSuggestions: (query: string) => Promise<any[]>,\n+  minLength = 2,\n+) {}\n"
+                },
+                {
+                    "date": 1715876155745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,7 @@\n   id: string,\n   query: string,\n   fetchSuggestions: (query: string) => Promise<any[]>,\n   minLength = 2,\n-) {}\n+) {\n+  \n+}\n"
+                },
+                {
+                    "date": 1715876198788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,15 @@\n+import { useQuery } from \"@tanstack/react-query\";\n+\n export function useFetchSuggestions(\n   id: string,\n   query: string,\n   fetchSuggestions: (query: string) => Promise<any[]>,\n   minLength = 2,\n ) {\n-  \n+  return useQuery(\n+    ['suggestions', id, query],\n+    ()=> fetchSuggestions(query),\n+    {\n+    }\n+  )\n }\n"
+                },
+                {
+                    "date": 1715876211345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,7 @@\n ) {\n   return useQuery(\n     [\"suggestions\", id, query],\n     () => fetchSuggestions(query),\n-    {},\n+    {enabled : query.length >= minLength},\n   );\n }\n"
+                },
+                {
+                    "date": 1715876218780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,10 @@\n   query: string,\n   fetchSuggestions: (query: string) => Promise<any[]>,\n   minLength = 2,\n ) {\n-  return useQuery([\"suggestions\", id, query], () => fetchSuggestions(query), {\n-    enabled: query.length >= minLength,\n-  });\n+  return useQuery(\n+    [\"suggestions\", id, query],\n+    () => fetchSuggestions(query),\n+\n+  );\n }\n"
+                }
+            ],
+            "date": 1715875398792,
+            "name": "Commit-0",
+            "content": "export function fetchSuggestions (query:string, fetchSuggestions: (query)=> ) {\n\n}\n"
+        }
+    ]
+}

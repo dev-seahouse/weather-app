@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/stories/Button.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1715791672327,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715791700158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,10 +42,10 @@\n     <button\n       type=\"button\"\n       className={[\n         \"storybook-button\",\n-        \"p-5\",\n         `storybook-button--${size}`,\n+        'p-4',\n         mode,\n       ].join(\" \")}\n       style={{ backgroundColor }}\n       {...props}\n"
+                },
+                {
+                    "date": 1715792209426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,6 @@\n import \"./button.css\";\n \n-import React from \"react\";\n-\n interface ButtonProps {\n   /**\n    * Is this the principal call to action on the page?\n    */\n"
+                }
+            ],
+            "date": 1715791672327,
+            "name": "Commit-0",
+            "content": "import \"./button.css\";\n\nimport React from \"react\";\n\ninterface ButtonProps {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  primary?: boolean;\n  /**\n   * What background color to use\n   */\n  backgroundColor?: string;\n  /**\n   * How large should the button be?\n   */\n  size?: 'small' | 'medium' | 'large';\n  /**\n   * Button contents\n   */\n  label: string;\n  /**\n   * Optional click handler\n   */\n  onClick?: () => void;\n}\n\n/**\n * Primary UI component for user interaction\n */\nexport const Button = ({\n  primary = false,\n  size = 'medium',\n  backgroundColor,\n  label,\n  ...props\n}: ButtonProps) => {\n  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n  return (\n    <button\n      type=\"button\"\n      className={['storybook-button',\"p-5\", `storybook-button--${size}`, mode].join(' ')}\n      style={{ backgroundColor }}\n      {...props}\n    >\n      {label}\n    </button>\n  );\n};\n"
+        }
+    ]
+}

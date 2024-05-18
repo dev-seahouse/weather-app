@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/components/ui/Button.stories.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1715820437203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715820465662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,9 @@\n+import { Button } from \"@/components/ui/Button\";\n+\n const meta = {\n   title: \"UI/Button\",\n   component: Button,\n+  parameters: {\n+    layout: \"centered\"\n+  }\n }\n"
+                },
+                {
+                    "date": 1715820513748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,14 @@\n const meta = {\n   title: \"UI/Button\",\n   component: Button,\n   parameters: {\n-    layout: \"centered\"\n+    layout: \"centered\",\n+  },\n+  tags: [\"autodocs\"],\n+  argTypes: {\n+    backgroundColor: { control: \"color\" },\n+  },\n+  args:{\n+    onClick: fn()\n   }\n-}\n+};\n"
+                },
+                {
+                    "date": 1715820519257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { Button } from \"@/components/ui/Button\";\n+import { fn } from \"@storybook/test\";\n \n const meta = {\n   title: \"UI/Button\",\n   component: Button,\n"
+                },
+                {
+                    "date": 1715820534942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,5 +13,5 @@\n   },\n   args:{\n     onClick: fn()\n   }\n-};\n+} satisfies Meta<typeof Button>;\n"
+                },
+                {
+                    "date": 1715820563130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { Button } from \"@/components/ui/Button\";\n+import type { Meta } from \"@storybook/react\";\n import { fn } from \"@storybook/test\";\n \n const meta = {\n   title: \"UI/Button\",\n"
+                },
+                {
+                    "date": 1715820580370,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,8 @@\n   tags: [\"autodocs\"],\n   argTypes: {\n     backgroundColor: { control: \"color\" },\n   },\n-  args:{\n-    onClick: fn()\n-  }\n+  args: {\n+    onClick: fn(),\n+  },\n } satisfies Meta<typeof Button>;\n"
+                },
+                {
+                    "date": 1715820598478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,8 @@\n     layout: \"centered\",\n   },\n   tags: [\"autodocs\"],\n   argTypes: {\n-    backgroundColor: { control: \"color\" },\n   },\n   args: {\n     onClick: fn(),\n   },\n"
+                },
+                {
+                    "date": 1715820623473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,11 @@\n   parameters: {\n     layout: \"centered\",\n   },\n   tags: [\"autodocs\"],\n-  argTypes: {},\n+  argTypes: {\n+    className: {control: \"text\"},\n+  },\n   args: {\n     onClick: fn(),\n   },\n } satisfies Meta<typeof Button>;\n"
+                },
+                {
+                    "date": 1715820769681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,7 +23,7 @@\n type Story = StoryObj<typeof meta>\n \n export const Primary: Story = {\n   args: {\n-\n+    children: \"Primary Button\"\n   }\n }\n"
+                }
+            ],
+            "date": 1715820437203,
+            "name": "Commit-0",
+            "content": "const meta = {\n  title: \"UI/Button\",\n  component: Button,\n}\n"
+        }
+    ]
+}

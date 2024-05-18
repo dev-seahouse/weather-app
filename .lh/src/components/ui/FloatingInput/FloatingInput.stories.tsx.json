@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/components/ui/FloatingInput/FloatingInput.stories.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1715938816011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715938830289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { FloatingInput } from \"@/components/ui/FloatingInput/FloatingInput\";\n+import type { Meta } from \"@storybook/react\";\n \n const meta = {\n   title: \"UI/FloatingInput\",\n   component: FloatingInput,\n@@ -17,5 +18,13 @@\n         },\n       ],\n     },\n   },\n+\n } satisfies Meta<typeof FloatingInput>;\n+\n+\n+export default meta;\n+\n+type Story = StoryObj<typeof meta>;\n+\n+export const Primary: Story = {};\n"
+                },
+                {
+                    "date": 1715938910385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,9 @@\n import { FloatingInput } from \"@/components/ui/FloatingInput/FloatingInput\";\n-import type { Meta, StoryObj } from \"@storybook/react\";\n+import type {\n+  Meta,\n+  StoryObj,\n+} from \"@storybook/react\";\n \n const meta = {\n   title: \"UI/FloatingInput\",\n   component: FloatingInput,\n@@ -24,5 +27,9 @@\n export default meta;\n \n type Story = StoryObj<typeof meta>;\n \n-export const Primary: Story = {};\n+export const Primary: Story = {\n+  args: {\n+  }\n+\n+};\n"
+                },
+                {
+                    "date": 1715938917315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,9 @@\n import { FloatingInput } from \"@/components/ui/FloatingInput/FloatingInput\";\n-import type { Meta, StoryObj } from \"@storybook/react\";\n+import type {\n+  Meta,\n+  StoryObj,\n+} from \"@storybook/react\";\n \n const meta = {\n   title: \"UI/FloatingInput\",\n   component: FloatingInput,\n@@ -25,6 +28,8 @@\n \n type Story = StoryObj<typeof meta>;\n \n export const Primary: Story = {\n-  args: {},\n+  args: {\n+    label:\"hello\"\n+  },\n };\n"
+                }
+            ],
+            "date": 1715938816011,
+            "name": "Commit-0",
+            "content": "import { FloatingInput } from \"@/components/ui/FloatingInput/FloatingInput\";\n\nconst meta = {\n  title: \"UI/FloatingInput\",\n  component: FloatingInput,\n  parameters: {\n    backgrounds: {\n      default: \"white\",\n      values: [\n        {\n          name: \"white\",\n          value: \"#fff\",\n        },\n        {\n          name: \"theme\",\n          value: \"#6a44c8\",\n        },\n      ],\n    },\n  },\n} satisfies Meta<typeof FloatingInput>;\n"
+        }
+    ]
+}

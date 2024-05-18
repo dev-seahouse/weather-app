@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/components/ui/AutoComplete.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1715872657209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715872756286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n interface AutoCompleteProps {\n   placeholder?: string;\n   fetchSuggestions: (query: string) => Promise<Option[]>;\n   minLength?: number;\n-  onOptionSelect: (option: Option) => void;\n+  onOptionSelected: (option: Option) => void;\n   inputClassName?: string;\n   popoverClassName?: string;\n   optionClassName?: string;\n   spinnerClassName?: string;\n"
+                },
+                {
+                    "date": 1715872780498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,5 +35,6 @@\n   },\n   ref,\n ) => {\n   const [inputValue, setInputValue] = useState(\"\");\n+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);\n };\n"
+                },
+                {
+                    "date": 1715872828507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,5 +36,9 @@\n   ref,\n ) => {\n   const [inputValue, setInputValue] = useState(\"\");\n   const [isPopoverOpen, setIsPopoverOpen] = useState(false);\n+\n+  return <div>\n+    hello\n+  </div>\n };\n"
+                },
+                {
+                    "date": 1715872864372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,4 +39,6 @@\n   const [isPopoverOpen, setIsPopoverOpen] = useState(false);\n \n   return <div>hello</div>;\n };\n+\n+export default React.forwardRef(AutoComplete);\n"
+                },
+                {
+                    "date": 1715872875575,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,5 +39,5 @@\n \n   return <div>hello</div>;\n };\n \n-export default React.forwardRef(AutoComplete);\n+export default forwardRef(AutoComplete);\n"
+                }
+            ],
+            "date": 1715872657209,
+            "name": "Commit-0",
+            "content": "import type { ForwardRefRenderFunction } from \"react\";\n\nexport default {};\ninterface Option {\n  id: string;\n  label: string;\n}\n\ninterface AutoCompleteProps {\n  placeholder?: string;\n  fetchSuggestions: (query: string) => Promise<Option[]>;\n  minLength?: number;\n  onOptionSelect: (option: Option) => void;\n  inputClassName?: string;\n  popoverClassName?: string;\n  optionClassName?: string;\n  spinnerClassName?: string;\n  errorClassName?: string;\n}\n\nconst AutoComplete: ForwardRefRenderFunction<\n  HTMLInputElement,\n  AutoCompleteProps\n> = (\n  {\n    placeholder = \"Type to search...\",\n    fetchSuggestions,\n    minLength = 2,\n    onOptionSelected,\n    inputClassName = \"\",\n    popoverClassName = \"\",\n    optionClassName = \"\",\n    spinnerClassName = \"\",\n    errorClassName = \"\",\n  },\n  ref,\n) => {\n  const [inputValue, setInputValue] = useState(\"\");\n};\n"
+        }
+    ]
+}

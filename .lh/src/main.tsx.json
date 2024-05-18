@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/main.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1715833626282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1715833626282,
+            "name": "Commit-0",
+            "content": "import \"./index.css\";\n\nimport React from \"react\";\n\nimport ReactDOM from \"react-dom/client\";\n\nimport App from \"./App.tsx\";\n\nReactDOM.createRoot(document.getElementById('root')!).render(\n  <React.StrictMode>\n    <App />\n  </React.StrictMode>,\n)\n"
+        }
+    ]
+}

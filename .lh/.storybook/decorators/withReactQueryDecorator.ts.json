@@ -1,0 +1,66 @@
+{
+    "sourceFile": ".storybook/decorators/withReactQueryDecorator.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1715841241822,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715841291009,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,8 @@\n+\n+/**\n+ * \n // https://storybook.js.org/docs/addons/addons-api#makedecorator\n+ */\n+export const withReactQueryDecorator = makeDecorator({\n+\n+})\n"
+                },
+                {
+                    "date": 1715841309848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \n /**\n- * \n+ *\n // https://storybook.js.org/docs/addons/addons-api#makedecorator\n  */\n export const withReactQueryDecorator = makeDecorator({\n-\n-})\n+  name:\"withReactQueryDecorator\"\n+}),\n"
+                },
+                {
+                    "date": 1715841317466,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n-\n /**\n  *\n // https://storybook.js.org/docs/addons/addons-api#makedecorator\n  */\n export const withReactQueryDecorator = makeDecorator({\n-  name:\"withReactQueryDecorator\"\n-}),\n+  name: \"withReactQueryDecorator\",\n+});\n"
+                },
+                {
+                    "date": 1715841332598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n+import { makeDecorator } from \"@storybook/preview-api\";\n+\n /**\n- *\n // https://storybook.js.org/docs/addons/addons-api#makedecorator\n  */\n export const withReactQueryDecorator = makeDecorator({\n   name: \"withReactQueryDecorator\",\n"
+                },
+                {
+                    "date": 1715841347050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,6 @@\n // https://storybook.js.org/docs/addons/addons-api#makedecorator\n  */\n export const withReactQueryDecorator = makeDecorator({\n   name: \"withReactQueryDecorator\",\n+  parameterName: \n });\n"
+                },
+                {
+                    "date": 1715841357904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,6 @@\n // https://storybook.js.org/docs/addons/addons-api#makedecorator\n  */\n export const withReactQueryDecorator = makeDecorator({\n   name: \"withReactQueryDecorator\",\n-  parameterName: \n+  parameterName: \"reactQuery\",\n });\n"
+                },
+                {
+                    "date": 1715841413034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,12 @@\n \n /**\n // https://storybook.js.org/docs/addons/addons-api#makedecorator\n  */\n+\n export const withReactQueryDecorator = makeDecorator({\n   name: \"withReactQueryDecorator\",\n   parameterName: \"reactQuery\",\n+  wrapper : (getStory, context, {parameters})=> {\n+\n+  }\n });\n"
+                },
+                {
+                    "date": 1715841495899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import { makeDecorator } from \"@storybook/preview-api\";\n \n /**\n // https://storybook.js.org/docs/addons/addons-api#makedecorator\n+https://github.com/TanStack/query/discussions/1352#discussioncomment-6710703\n  */\n \n export const withReactQueryDecorator = makeDecorator({\n   name: \"withReactQueryDecorator\",\n"
+                },
+                {
+                    "date": 1715841503554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,12 @@\n import { makeDecorator } from \"@storybook/preview-api\";\n \n /**\n // https://storybook.js.org/docs/addons/addons-api#makedecorator\n-https://github.com/TanStack/query/discussions/1352#discussioncomment-6710703\n+  https://github.com/TanStack/query/discussions/1352#discussioncomment-6710703\n  */\n \n export const withReactQueryDecorator = makeDecorator({\n   name: \"withReactQueryDecorator\",\n   parameterName: \"reactQuery\",\n-  wrapper : (getStory, context, {parameters})=> {\n-\n-  }\n+  wrapper: (getStory, context, { parameters }) => {},\n });\n"
+                },
+                {
+                    "date": 1715841546991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,6 @@\n import { makeDecorator } from \"@storybook/preview-api\";\n \n-/**\n-// https://storybook.js.org/docs/addons/addons-api#makedecorator\n-  https://github.com/TanStack/query/discussions/1352#discussioncomment-6710703\n- */\n-\n export const withReactQueryDecorator = makeDecorator({\n   name: \"withReactQueryDecorator\",\n   parameterName: \"reactQuery\",\n   wrapper: (getStory, context, { parameters }) => {},\n"
+                },
+                {
+                    "date": 1715844756419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,14 @@\n import { makeDecorator } from \"@storybook/preview-api\";\n \n+const queryClient = new QueryClient({\n+      defaultOptions: {\n+        queries: {\n+          staleTime: Infinity,\n+          refetchOnWindowFocus: false,\n+        },\n+      },\n+    });\n export const withReactQueryDecorator = makeDecorator({\n   name: \"withReactQueryDecorator\",\n   parameterName: \"reactQuery\",\n   wrapper: (getStory, context, { parameters }) => {},\n"
+                },
+                {
+                    "date": 1715844772702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { makeDecorator } from \"@storybook/preview-api\";\n+import { QueryClient } from \"@tanstack/react-query\";\n \n const queryClient = new QueryClient({\n   defaultOptions: {\n     queries: {\n"
+                }
+            ],
+            "date": 1715841241822,
+            "name": "Commit-0",
+            "content": "// https://storybook.js.org/docs/addons/addons-api#makedecorator\n"
+        }
+    ]
+}

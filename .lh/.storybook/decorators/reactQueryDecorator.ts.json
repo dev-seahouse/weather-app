@@ -1,0 +1,22 @@
+{
+    "sourceFile": ".storybook/decorators/reactQueryDecorator.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1715840686201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715840751270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,45 +0,0 @@\n-import type { ReactNode } from \"react\";\n-\n-import { makeDecorator } from \"@storybook/preview-api\";\n-import {\n-  QueryClient,\n-  QueryClientProvider,\n-} from \"@tanstack/react-query\";\n-import { ReactQueryDevtools } from \"@tanstack/react-query-devtools\";\n-\n-export const reactQueryDecorator = makeDecorator({\n-  name: 'reactQueryDecorator',\n-  parameterName: 'reactQuery',\n-  wrapper: (getStory, context, { parameters }) => {\n-    const queryClient = new QueryClient({\n-      defaultOptions: {\n-        queries: {\n-          staleTime: Infinity,\n-          refetchOnWindowFocus: false,\n-        },\n-      },\n-    });\n-\n-    if (parameters && parameters.setQueryData) {\n-      const { queryKey, data } = parameters.setQueryData;\n-\n-      queryClient.setQueryData(\n-        typeof queryKey === 'string' ? [queryKey] : queryKey,\n-        () => ({\n-          ...data,\n-        })\n-      );\n-    }\n-\n-    return (\n-      <QueryClientProvider client={queryClient}>\n-        {getStory(context) as ReactNode}\n-        {parameters && parameters.enableDevtools && (\n-          <ReactQueryDevtools initialIsOpen={false} />\n-        )}\n-      </QueryClientProvider>\n-    );\n-  },\n-});\n-\n-export default reactQueryDecorator;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1715840686200,
+            "name": "Commit-0",
+            "content": "import type { ReactNode } from \"react\";\n\nimport { makeDecorator } from \"@storybook/preview-api\";\nimport {\n  QueryClient,\n  QueryClientProvider,\n} from \"@tanstack/react-query\";\nimport { ReactQueryDevtools } from \"@tanstack/react-query-devtools\";\n\nexport const reactQueryDecorator = makeDecorator({\n  name: 'reactQueryDecorator',\n  parameterName: 'reactQuery',\n  wrapper: (getStory, context, { parameters }) => {\n    const queryClient = new QueryClient({\n      defaultOptions: {\n        queries: {\n          staleTime: Infinity,\n          refetchOnWindowFocus: false,\n        },\n      },\n    });\n\n    if (parameters && parameters.setQueryData) {\n      const { queryKey, data } = parameters.setQueryData;\n\n      queryClient.setQueryData(\n        typeof queryKey === 'string' ? [queryKey] : queryKey,\n        () => ({\n          ...data,\n        })\n      );\n    }\n\n    return (\n      <QueryClientProvider client={queryClient}>\n        {getStory(context) as ReactNode}\n        {parameters && parameters.enableDevtools && (\n          <ReactQueryDevtools initialIsOpen={false} />\n        )}\n      </QueryClientProvider>\n    );\n  },\n});\n\nexport default reactQueryDecorator;\n"
+        }
+    ]
+}

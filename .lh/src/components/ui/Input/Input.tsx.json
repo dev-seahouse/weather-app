@@ -1,0 +1,58 @@
+{
+    "sourceFile": "src/components/ui/Input/Input.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1715913925090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715921883638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,15 +11,15 @@\n       <input\n         type={type}\n         className={cn(\n           \"flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50\",\n-          className\n+          className,\n         )}\n         ref={ref}\n         {...props}\n       />\n-    )\n-  }\n-)\n-Input.displayName = \"Input\"\n+    );\n+  },\n+);\n+Input.displayName = \"Input\";\n \n export { Input };\n"
+                },
+                {
+                    "date": 1715922136648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     return (\n       <input\n         type={type}\n         className={cn(\n-          \"flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50\",\n+          \"rounded-md flex h-10 w-full border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50\",\n           className,\n         )}\n         ref={ref}\n         {...props}\n"
+                },
+                {
+                    "date": 1715922222918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,15 +4,16 @@\n \n export interface InputProps\n   extends React.InputHTMLAttributes<HTMLInputElement> {}\n \n+\n const Input = React.forwardRef<HTMLInputElement, InputProps>(\n   ({ className, type, ...props }, ref) => {\n     return (\n       <input\n         type={type}\n         className={cn(\n-          \"rounded-md flex h-10 w-full border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50\",\n+          \"flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50\",\n           className,\n         )}\n         ref={ref}\n         {...props}\n"
+                },
+                {
+                    "date": 1715922257772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     return (\n       <input\n         type={type}\n         className={cn(\n-          \"flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50\",\n+          \" rounded-md border flex h-10 w-full border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50\",\n           className,\n         )}\n         ref={ref}\n         {...props}\n"
+                },
+                {
+                    "date": 1715922263667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     return (\n       <input\n         type={type}\n         className={cn(\n-          \" rounded-md border flex h-10 w-full border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50\",\n+          \"flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50\",\n           className,\n         )}\n         ref={ref}\n         {...props}\n"
+                },
+                {
+                    "date": 1715922297103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,8 @@\n \n export interface InputProps\n   extends React.InputHTMLAttributes<HTMLInputElement> {}\n \n-\n const Input = React.forwardRef<HTMLInputElement, InputProps>(\n   ({ className, type, ...props }, ref) => {\n     return (\n       <input\n"
+                },
+                {
+                    "date": 1715922320619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     return (\n       <input\n         type={type}\n         className={cn(\n-          \"flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50\",\n+          \"flex h-10 w-full rounded-md border border-input py-2 bg-background px-3  text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50\",\n           className,\n         )}\n         ref={ref}\n         {...props}\n"
+                },
+                {
+                    "date": 1715922597743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n export interface InputProps\n   extends React.InputHTMLAttributes<HTMLInputElement> {}\n \n+\n const Input = React.forwardRef<HTMLInputElement, InputProps>(\n   ({ className, type, ...props }, ref) => {\n     return (\n       <input\n"
+                },
+                {
+                    "date": 1715922609796,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n export interface InputProps\n   extends React.InputHTMLAttributes<HTMLInputElement> {}\n \n+\n const Input = React.forwardRef<HTMLInputElement, InputProps>(\n   ({ className, type, ...props }, ref) => {\n     return (\n       <input\n"
+                },
+                {
+                    "date": 1715929467953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n       <input\n         type={type}\n         className={cn(\n           `\n-            flex h-10 w-full rounded-md border border-input bg-background px-3\n+            flex h-10 w-full rounded-xs border border-input bg-background px-3\n             py-2 text-sm ring-offset-background\n \n             file:border-0 file:bg-transparent file:text-sm file:font-medium\n \n"
+                }
+            ],
+            "date": 1715913925090,
+            "name": "Commit-0",
+            "content": "import * as React from \"react\";\n\nimport { cn } from \"@/utils/cn\";\n\nexport interface InputProps\n  extends React.InputHTMLAttributes<HTMLInputElement> {}\n\nconst Input = React.forwardRef<HTMLInputElement, InputProps>(\n  ({ className, type, ...props }, ref) => {\n    return (\n      <input\n        type={type}\n        className={cn(\n          \"flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50\",\n          className\n        )}\n        ref={ref}\n        {...props}\n      />\n    )\n  }\n)\nInput.displayName = \"Input\"\n\nexport { Input };\n"
+        }
+    ]
+}

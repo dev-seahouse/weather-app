@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/api/MapBoxApit.types.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1715920213229,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715920497211,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,77 @@\n+interface RootObject {\n+  type: string;\n+  features: Feature[];\n+  attribution: string;\n+}\n+\n+interface Feature {\n+  type: string;\n+  id: string;\n+  geometry: Geometry;\n+  properties: Properties;\n+}\n+\n+interface Properties {\n+  mapbox_id: string;\n+  feature_type: string;\n+  full_address: string;\n+  name: string;\n+  name_preferred: string;\n+  coordinates: Coordinates;\n+  place_formatted: string;\n+  bbox?: number[];\n+  context: Context;\n+}\n+\n+interface Context {\n+  region: Region;\n+  place: Place;\n+  country: Country;\n+  locality: Locality;\n+  street?: Street;\n+  postcode?: Street;\n+}\n+\n+interface Street {\n+  mapbox_id: string;\n+  name: string;\n+}\n+\n+interface Locality {\n+  mapbox_id: string;\n+  name: string;\n+  wikidata_id: string;\n+}\n+\n+interface Country {\n+  mapbox_id: string;\n+  name: string;\n+  wikidata_id: string;\n+  country_code: string;\n+  country_code_alpha_3: string;\n+}\n+\n+interface Place {\n+  mapbox_id: string;\n+  name: string;\n+  wikidata_id: string;\n+  short_code: string;\n+}\n+\n+interface Region {\n+  mapbox_id: string;\n+  name: string;\n+  wikidata_id: string;\n+  region_code: string;\n+  region_code_full: string;\n+}\n+\n+interface Coordinates {\n+  longitude: number;\n+  latitude: number;\n+}\n+\n+interface Geometry {\n+  type: string;\n+  coordinates: number[];\n+}\n"
+                },
+                {
+                    "date": 1715920507988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-interface RootObject {\n+interface GetPlacesResponse{\n   type: string;\n   features: Feature[];\n   attribution: string;\n }\n"
+                },
+                {
+                    "date": 1715920531979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n-interface GetPlacesResponse{\n+\n+// get\n+interface GetPlacesResponse {\n   type: string;\n   features: Feature[];\n   attribution: string;\n }\n"
+                },
+                {
+                    "date": 1715920556715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n \n-// get\n+// getPlaces\n interface GetPlacesResponse {\n   type: string;\n   features: Feature[];\n   attribution: string;\n"
+                },
+                {
+                    "date": 1715920578288,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,9 @@\n+// getPlaces\n+interface GetPlacesRequest {\n+  \n+}\n \n-// getPlaces\n interface GetPlacesResponse {\n   type: string;\n   features: Feature[];\n   attribution: string;\n"
+                },
+                {
+                    "date": 1715920614857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n // getPlaces\n interface GetPlacesRequest {\n-  \n+  q:string\n }\n \n interface GetPlacesResponse {\n   type: string;\n"
+                },
+                {
+                    "date": 1715920833257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n // getPlaces\n-interface GetPlacesRequest {\n+export interface GetPlacesRequest {\n   q: string;\n }\n \n-interface GetPlacesResponse {\n+export interface GetPlacesResponse {\n   type: string;\n   features: Feature[];\n   attribution: string;\n }\n"
+                }
+            ],
+            "date": 1715920213228,
+            "name": "Commit-0",
+            "content": ""
+        }
+    ]
+}

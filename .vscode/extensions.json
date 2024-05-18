@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "dozerg.tsimportsorter",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "usernamehw.errorlens",
+    "yoavbls.pretty-ts-errors"
+  ]
+}

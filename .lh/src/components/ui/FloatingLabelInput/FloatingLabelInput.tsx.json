@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/components/ui/FloatingLabelInput/FloatingLabelInput.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1715940072930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715940080598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n   return (\n     <Label\n       className={cn(\n         `\n-          absolute left-3 top-1/2 z-10 origin-[0] -translate-y-1/3 scale-100\n+          absolute left-3 top-1/2 z-10 origin-[0] -translate-y-1/2 scale-100\n           bg-transparent text-gray-500 duration-300\n \n           peer-placeholder-shown:top-1/2 peer-placeholder-shown:scale-100\n \n"
+                },
+                {
+                    "date": 1715940097425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n           bg-transparent text-gray-500 duration-300\n \n           peer-placeholder-shown:top-1/2 peer-placeholder-shown:scale-100\n \n-          peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75\n+          peer-focus:top-2 peer-focus:-translate-y-3 peer-focus:scale-75\n           peer-focus:text-purple-600\n         `,\n         className,\n       )}\n"
+                },
+                {
+                    "date": 1715940104529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n           bg-transparent text-gray-500 duration-300\n \n           peer-placeholder-shown:top-1/2 peer-placeholder-shown:scale-100\n \n-          peer-focus:top-2 peer-focus:-translate-y-3 peer-focus:scale-75\n+          peer-focus:top-2 peer-focus:-translate-y-2 peer-focus:scale-75\n           peer-focus:text-purple-600\n         `,\n         className,\n       )}\n"
+                },
+                {
+                    "date": 1715940354987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,17 +27,10 @@\n >(({ className, ...props }, ref) => {\n   return (\n     <Label\n       className={cn(\n-        `\n-          absolute left-3 top-1/2 z-10 origin-[0] -translate-y-1/2 scale-100\n-          bg-transparent text-gray-500 duration-300\n-\n-          peer-placeholder-shown:top-1/2 peer-placeholder-shown:scale-100\n-\n-          peer-focus:top-2 peer-focus:-translate-y-2 peer-focus:scale-75\n-          peer-focus:text-purple-600\n-        `,\n+        \"absolute left-3 top-1/2 z-10 origin-[0] -translate-y-1/2 scale-100 transform bg-transparent text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-purple-600\",\n+        \"peer-input:not(:placeholder-shown):top-2 peer-input:not(:placeholder-shown):-translate-y-4 peer-input:not(:placeholder-shown):scale-75\",\n         className,\n       )}\n       ref={ref}\n       {...props}\n"
+                },
+                {
+                    "date": 1715940504818,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,22 +27,12 @@\n >(({ className, ...props }, ref) => {\n   return (\n     <Label\n       className={cn(\n-        `\n-          absolute left-3 top-1/2 z-10 origin-[0] -translate-y-1/2 scale-100\n-          bg-transparent text-gray-500 duration-300\n-\n-          peer-placeholder-shown:top-1/2 peer-placeholder-shown:scale-100\n-\n-          peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75\n-          peer-focus:text-purple-600\n-        `,\n-        `\n-          peer-input:not(:placeholder-shown):top-2\n-          peer-input:not(:placeholder-shown):-translate-y-4\n-          peer-input:not(:placeholder-shown):scale-75\n-        `,\n+        \"absolute left-3 top-1/2 z-10 origin-[0] -translate-y-1/2 scale-100 transform bg-transparent text-gray-500 duration-300\",\n+        \"peer-placeholder-shown:top-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2\",\n+        \"peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-purple-600\",\n+        \"peer-not-placeholder-shown:top-2 peer-not-placeholder-shown:-translate-y-4 peer-not-placeholder-shown:scale-75\",\n         className,\n       )}\n       ref={ref}\n       {...props}\n"
+                },
+                {
+                    "date": 1715940525198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n           peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2\n           peer-placeholder-shown:scale-100\n         `,\n         `\n-          peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75\n+          peer-focus:top-2 peer-focus:-translate-y-2 peer-focus:scale-75\n           peer-focus:text-purple-600\n         `,\n         `\n           peer-not-placeholder-shown:top-2\n"
+                }
+            ],
+            "date": 1715940072930,
+            "name": "Commit-0",
+            "content": "import * as React from \"react\";\n\nimport { Input } from \"@/components/ui/Input\";\nimport { Label } from \"@/components/ui/Label\";\nimport { cn } from \"@/utils/cn\";\n\nexport interface InputProps\n  extends React.InputHTMLAttributes<HTMLInputElement> {}\n\nconst FloatingInput = React.forwardRef<HTMLInputElement, InputProps>(\n  ({ className, ...props }, ref) => {\n    return (\n      <Input\n        placeholder=\" \"\n        className={cn(\"peer\", className)}\n        ref={ref}\n        {...props}\n      />\n    );\n  },\n);\nFloatingInput.displayName = \"FloatingInput\";\n\nconst FloatingLabel = React.forwardRef<\n  React.ElementRef<typeof Label>,\n  React.ComponentPropsWithoutRef<typeof Label>\n>(({ className, ...props }, ref) => {\n  return (\n    <Label\n      className={cn(\n        `\n          absolute left-3 top-1/2 z-10 origin-[0] -translate-y-1/3 scale-100\n          bg-transparent text-gray-500 duration-300\n\n          peer-placeholder-shown:top-1/2 peer-placeholder-shown:scale-100\n\n          peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75\n          peer-focus:text-purple-600\n        `,\n        className,\n      )}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nFloatingLabel.displayName = \"FloatingLabel\";\n\ntype FloatingLabelInputProps = InputProps & { label?: string };\n\nconst FloatingLabelInput = React.forwardRef<\n  React.ElementRef<typeof FloatingInput>,\n  React.PropsWithoutRef<FloatingLabelInputProps>\n>(({ id, label, ...props }, ref) => {\n  return (\n    <div className=\"relative\">\n      <FloatingInput ref={ref} id={id} {...props} />\n      <FloatingLabel htmlFor={id}>{label}</FloatingLabel>\n    </div>\n  );\n});\nFloatingLabelInput.displayName = \"FloatingLabelInput\";\n\nexport { FloatingLabelInput };\n"
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/components/ui/AutoComplete/AutoComplete.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1715876828190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715876855051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,12 @@\n   useRef,\n   useState,\n } from \"react\";\n \n+import {\n+  AutoCompleteProps,\n+} from \"@/components/ui/AutoComplete/AutoComplete.types\";\n+\n const AutoCompleteComponent: ForwardRefRenderFunction<\n   HTMLInputElement,\n   AutoCompleteProps\n > = (\n"
+                },
+                {
+                    "date": 1715876868703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   useRef,\n   useState,\n } from \"react\";\n \n-import {\n+import type {\n   AutoCompleteProps,\n } from \"@/components/ui/AutoComplete/AutoComplete.types\";\n \n const AutoCompleteComponent: ForwardRefRenderFunction<\n"
+                },
+                {
+                    "date": 1715876880888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,9 @@\n   useRef,\n   useState,\n } from \"react\";\n \n-import type {\n-  AutoCompleteProps,\n-} from \"@/components/ui/AutoComplete/AutoComplete.types\";\n+import type { AutoCompleteProps } from \"./AutoComplete.types\";\n \n const AutoCompleteComponent: ForwardRefRenderFunction<\n   HTMLInputElement,\n   AutoCompleteProps\n"
+                },
+                {
+                    "date": 1715876887914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import React, {\n+import {\n   forwardRef,\n   type ForwardRefRenderFunction,\n   useRef,\n   useState,\n"
+                },
+                {
+                    "date": 1715876920895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     placeholder = \"Type to search...\",\n     fetchSuggestions,\n     minLength = 2,\n     onOptionSelected,\n-    debounceTimeOut,\n+    debounceTimeout,\n     inputClassName = \"\",\n     popoverClassName = \"\",\n     optionClassName = \"\",\n     spinnerClassName = \"\",\n"
+                },
+                {
+                    "date": 1715876999976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,8 @@\n   const ownInputRef = useRef<HTMLInputElement>(null);\n \n   const inputRef = ownInputRef || ownInputRef;\n \n-  const {data: suggestions, isLoading, isError} =\n \n   return <div>hello</div>;\n };\n \n"
+                },
+                {
+                    "date": 1715908894157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,37 +1,7 @@\n-import {\n-  forwardRef,\n-  type ForwardRefRenderFunction,\n-  useRef,\n-  useState,\n-} from \"react\";\n+import { forwardRef } from \"react\";\n \n-import type { AutoCompleteProps } from \"./AutoComplete.types\";\n+const AutoComplete =<T,>({})=> {\n+  return <div>hello</div>\n+}\n \n-const AutoCompleteComponent: ForwardRefRenderFunction<\n-  HTMLInputElement,\n-  AutoCompleteProps\n-> = (\n-  {\n-    placeholder = \"Type to search...\",\n-    fetchSuggestions,\n-    minLength = 2,\n-    onOptionSelected,\n-    debounceTimeout,\n-    inputClassName = \"\",\n-    popoverClassName = \"\",\n-    optionClassName = \"\",\n-    spinnerClassName = \"\",\n-    errorClassName = \"\",\n-  },\n-  ref,\n-) => {\n-  const [inputValue, setInputValue] = useState(\"\");\n-  const [isPopoverOpen, setPopoverOpen] = useState(false);\n-  const ownInputRef = useRef<HTMLInputElement>(null);\n-\n-  const inputRef = ownInputRef || ownInputRef;\n-\n-  return <div>hello</div>;\n-};\n-\n export const AutoComplete = forwardRef(AutoCompleteComponent);\n"
+                },
+                {
+                    "date": 1715908900157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { forwardRef } from \"react\";\n \n-const AutoComplete = <T,>({}) => {\n+const AutoCompleteComponent = <T,>({}) => {\n   return <div>hello</div>;\n };\n \n export const AutoComplete = forwardRef(AutoCompleteComponent);\n"
+                }
+            ],
+            "date": 1715876828190,
+            "name": "Commit-0",
+            "content": "import React, {\n  forwardRef,\n  type ForwardRefRenderFunction,\n  useRef,\n  useState,\n} from \"react\";\n\nconst AutoCompleteComponent: ForwardRefRenderFunction<\n  HTMLInputElement,\n  AutoCompleteProps\n> = (\n  {\n    placeholder = \"Type to search...\",\n    fetchSuggestions,\n    minLength = 2,\n    onOptionSelected,\n    debounceTimeOut,\n    inputClassName = \"\",\n    popoverClassName = \"\",\n    optionClassName = \"\",\n    spinnerClassName = \"\",\n    errorClassName = \"\",\n  },\n  ref,\n) => {\n  const [inputValue, setInputValue] = useState(\"\");\n  const [isPopoverOpen, setPopoverOpen] = useState(false);\n  const ownInputRef = useRef<HTMLInputElement>(null);\n\n  const inputRef = ownInputRef || ownInputRef;\n\n  const {data: suggestions, isLoading, isError} =\n\n  return <div>hello</div>;\n};\n\nexport const AutoComplete = forwardRef(AutoCompleteComponent);\n"
+        }
+    ]
+}

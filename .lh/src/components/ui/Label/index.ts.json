@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/components/ui/Label/index.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1715938620517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715938634482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-export\n+export { Label } from \"./Label\";\n"
+                }
+            ],
+            "date": 1715938620517,
+            "name": "Commit-0",
+            "content": "export\n"
+        }
+    ]
+}

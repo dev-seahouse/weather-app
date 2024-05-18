@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/layouts/FullScreenBg.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1715967125354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715967133048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,13 @@\n import type { PropsWithChildren } from \"react\";\n \n export function FullScreenBg({children}:PropsWithChildren) {\n   return (\n-    \n+          <div\n+        className={`\n+          h-dvh bg-[url('assets/bg-dark.png')] bg-cover bg-center bg-no-repeat\n+        `}\n+      >\n+        {children}\n+      </div>\n   )\n }\n"
+                },
+                {
+                    "date": 1715971311058,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export function FullScreenBg({ children }: PropsWithChildren) {\n   return (\n     <div\n       className={`\n-        h-dvh bg-[url('assets/bg-dark.png')] bg-cover bg-center bg-no-repeat\n+        h-dvh bg-[url('assets/bg-dark.png')] bg-[lightgray] bg-cover bg-center bg-no-repeat\n       `}\n     >\n       {children}\n     </div>\n"
+                }
+            ],
+            "date": 1715967125354,
+            "name": "Commit-0",
+            "content": "import type { PropsWithChildren } from \"react\";\n\nexport function FullScreenBg({children}:PropsWithChildren) {\n  return (\n    \n  )\n}\n"
+        }
+    ]
+}

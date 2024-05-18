@@ -1,0 +1,26 @@
+{
+    "sourceFile": "components.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1715793761172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715819704062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,7 @@\n     \"prefix\": \"\"\n   },\n   \"aliases\": {\n     \"components\": \"@/components\",\n-    \"utils\": \"@/lib/utils\"\n+    \"utils\": \"@/utils\"\n   }\n }\n"
+                },
+                {
+                    "date": 1715820220802,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,7 @@\n     \"prefix\": \"\"\n   },\n   \"aliases\": {\n     \"components\": \"@/components\",\n-    \"utils\": \"@/utils\"\n+    \"utils\": \"@/utils/cn\"\n   }\n }\n"
+                }
+            ],
+            "date": 1715793761172,
+            "name": "Commit-0",
+            "content": "{\n  \"$schema\": \"https://ui.shadcn.com/schema.json\",\n  \"style\": \"default\",\n  \"rsc\": false,\n  \"tsx\": true,\n  \"tailwind\": {\n    \"config\": \"tailwind.config.js\",\n    \"css\": \"src/index.css\",\n    \"baseColor\": \"neutral\",\n    \"cssVariables\": true,\n    \"prefix\": \"\"\n  },\n  \"aliases\": {\n    \"components\": \"@/components\",\n    \"utils\": \"@/lib/utils\"\n  }\n}\n"
+        }
+    ]
+}
