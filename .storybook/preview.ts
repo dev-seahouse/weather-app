@@ -1,11 +1,22 @@
 import "../src/index.css";
 
+import {
+  INITIAL_VIEWPORTS,
+  MINIMAL_VIEWPORTS,
+} from "@storybook/addon-viewport";
 import type { Preview } from "@storybook/react";
 
 import { withReactQueryDecorator } from "./decorators/withReactQueryDecorator";
 
 const preview: Preview = {
   parameters: {
+    viewport: {
+      viewports: {
+        ...INITIAL_VIEWPORTS,
+        ...MINIMAL_VIEWPORTS,
+      },
+      defaultViewport: "iphone14pro",
+    },
     backgrounds: {
       default: "white",
       values: [

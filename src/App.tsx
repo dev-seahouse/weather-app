@@ -63,7 +63,7 @@ function App() {
           </header>
 
           {/*  */}
-          <section className="flex border-2">
+          <section className="flex">
             <DisplayWeather />
           </section>
         </main>
