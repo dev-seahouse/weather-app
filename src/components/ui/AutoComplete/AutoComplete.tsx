@@ -14,6 +14,7 @@ import { cn } from "@/utils/cn";
 
 import type { AutoCompleteProps, Option } from "./AutoComplete.types";
 
+// TODO: refactor and clean up
 const AutoCompleteComponent = <T,>(
   {
     label,
@@ -31,6 +32,7 @@ const AutoCompleteComponent = <T,>(
 ) => {
   const [internalValue, setInternalValue] = useState(value || "");
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
   const localInputRef = useRef<HTMLInputElement>(null);
 
   const inputRef = ref || localInputRef;
@@ -96,6 +98,28 @@ const AutoCompleteComponent = <T,>(
     }
   };
 
+  const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "ArrowDown") {
+      setHighlightedIndex(prevIndex =>
+        prevIndex === null || prevIndex === suggestions!.length - 1
+          ? 0
+          : prevIndex + 1,
+      );
+    } else if (event.key === "ArrowUp") {
+      setHighlightedIndex(prevIndex =>
+        prevIndex === null || prevIndex === 0
+          ? suggestions!.length - 1
+          : prevIndex - 1,
+      );
+    } else if (
+      event.key === "Enter" &&
+      highlightedIndex !== null &&
+      suggestions
+    ) {
+      handleOptionClick(suggestions[highlightedIndex]);
+    }
+  };
+
   return (
     <div className="relative w-full">
       <Popover open={isPopoverOpen}>
@@ -109,6 +133,7 @@ const AutoCompleteComponent = <T,>(
               value={currentValue}
               onChange={handleInputChange}
               onBlur={handleInputBlur}
+              onKeyDown={handleInputKeyDown}
               aria-autocomplete="list"
               aria-controls="autocomplete-listbox"
               aria-expanded={isPopoverOpen}
@@ -139,7 +164,7 @@ const AutoCompleteComponent = <T,>(
             </div>
           )}
 
-          {!isFetching && !suggestions?.length ? (
+          {!isLoading && !isFetching && !suggestions?.length ? (
             <div
               className={`
                 px-6 py-[5px]
@@ -151,27 +176,30 @@ const AutoCompleteComponent = <T,>(
             </div>
           ) : null}
 
-          {suggestions?.map(i => (
+          {suggestions?.map((item, index) => (
             <div
-              onClick={() => handleOptionClick(i)}
-              key={i.id}
-              onKeyDown={event => handleOptionKeyDown(event, i)}
+              onClick={() => handleOptionClick(item)}
+              key={item.id}
+              onKeyDown={event => handleOptionKeyDown(event, item)}
               role="option"
-              aria-selected={i.label === currentValue}
+              aria-selected={item.label === currentValue}
               tabIndex={0}
-              className={`
-                cursor-pointer px-6 py-[5px] text-sm
+              className={cn(
+                `
+                  cursor-pointer px-6 py-[5px] text-sm
 
-                first:rounded-t-sm first:pt-2
+                  first:rounded-t-sm first:pt-2
 
-                last:rounded-b-sm last:pb-2
+                  last:rounded-b-sm last:pb-2
 
-                hover:bg-gray-200/[.6]
+                  hover:bg-gray-200/[.6]
 
-                sm:text-base
-              `}
+                  sm:text-base
+                `,
+                highlightedIndex === index ? "bg-gray-200/[.6]" : "",
+              )}
             >
-              {i.label}
+              {item.label}
             </div>
           ))}
         </PopoverContent>

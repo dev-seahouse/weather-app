@@ -13,6 +13,9 @@ export function useFetchSuggestions<T>(
   return useQuery({
     queryKey: ["autocomplete_suggestions", id, query],
     queryFn: () => fetchSuggestions(query),
-    enabled: minLength >= 2,
+    enabled: query.length >= minLength,
+    staleTime: 60 * 60 * 1000,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
   });
 }

@@ -63,7 +63,14 @@ function App() {
           </header>
 
           {/* weather info pane */}
-          <section className="flex">
+          <section
+            className={`
+              flex items-center justify-center rounded-lg bg-[#1A1A1A]/[.3] p-5
+              backdrop-blur-sm
+
+              sm:p-11
+            `}
+          >
             <DisplayWeather />
           </section>
         </main>

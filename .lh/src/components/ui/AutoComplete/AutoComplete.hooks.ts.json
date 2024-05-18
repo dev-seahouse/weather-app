@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 18,
+            "activePatchIndex": 20,
             "patches": [
                 {
                     "date": 1715876811053,
@@ -80,6 +80,14 @@
                 {
                     "date": 1715964904968,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,7 +12,7 @@\n \n   return useQuery({\n     queryKey: [\"autocomplete_suggestions\", id, query],\n     queryFn: () => fetchSuggestions(query),\n-    enabled: false,\n+    enabled: minLength>=2\n   });\n }\n"
+                },
+                {
+                    "date": 1716000224353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,7 +12,7 @@\n \n   return useQuery({\n     queryKey: [\"autocomplete_suggestions\", id, query],\n     queryFn: () => fetchSuggestions(query),\n-    enabled: minLength >= 2,\n+    enabled: query.length >= minLength,\n   });\n }\n"
+                },
+                {
+                    "date": 1716000451371,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,7 +13,7 @@\n   return useQuery({\n     queryKey: [\"autocomplete_suggestions\", id, query],\n     queryFn: () => fetchSuggestions(query),\n     enabled: query.length >= minLength,\n-    staleTime: 60 * 1000,\n+    staleTime: 60*60 * 1000,\n   });\n }\n"
                 }
             ],
             "date": 1715876811053,
