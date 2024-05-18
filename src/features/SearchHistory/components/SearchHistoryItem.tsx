@@ -22,11 +22,22 @@ export const SearchHistoryItem: React.FC<{
     updateLocation(history.locationInfo);
   }
 
+  function handleDeleteButtonClick() {
+    const element = document.getElementById(`history-item-${history.id}`);
+    if (element) {
+      element.classList.add("animate-fadeOut");
+      setTimeout(() => deleteHistory(history.id), 500); // Duration matches the animation duration
+    } else {
+      deleteHistory(history.id); // Fallback in case element is not found
+    }
+  }
+
   return (
     <div
+      id={`history-item-${history.id}`}
       className={`
         mb-4 flex items-center justify-between rounded-2xl
-        bg-[rgba(26,26,26,0.5)] p-4
+        bg-[rgba(26,26,26,0.5)] p-4 transition-opacity
       `}
     >
       <div
@@ -78,7 +89,7 @@ export const SearchHistoryItem: React.FC<{
 
             hover:bg-white/[.3]
           `}
-          onClick={() => deleteHistory(history.id)}
+          onClick={handleDeleteButtonClick}
         >
           <DeleteIconRound className="size-full" />
         </Button>

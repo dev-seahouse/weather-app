@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 54,
+            "activePatchIndex": 55,
             "patches": [
                 {
                     "date": 1716040098681,
@@ -224,6 +224,10 @@
                 {
                     "date": 1716057422293,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,8 +58,9 @@\n       </div>\n \n       <div className=\"flex items-center gap-2\">\n         <Button\n+          onClick={handleSearchButtonClick}\n           variant=\"ghost\"\n           size=\"icon\"\n           className={`\n             size-[2.125rem] p-0\n"
+                },
+                {
+                    "date": 1716061841726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,13 +21,24 @@\n   function handleSearchButtonClick() {\n     updateLocation(history.locationInfo);\n   }\n \n+  function handleDeleteButtonClick() {\n+    const element = document.getElementById(`history-item-${history.id}`);\n+    if (element) {\n+      element.classList.add(\"animate-fadeOut\");\n+      setTimeout(() => deleteHistory(history.id), 500); // Duration matches the animation duration\n+    } else {\n+      deleteHistory(history.id); // Fallback in case element is not found\n+    }\n+  }\n+\n   return (\n     <div\n+      id={`history-item-${history.id}`}\n       className={`\n         mb-4 flex items-center justify-between rounded-2xl\n-        bg-[rgba(26,26,26,0.5)] p-4\n+        bg-[rgba(26,26,26,0.5)] p-4 transition-opacity\n       `}\n     >\n       <div\n         className={`\n@@ -77,9 +88,9 @@\n             size-[2.125rem] p-0\n \n             hover:bg-white/[.3]\n           `}\n-          onClick={() => deleteHistory(history.id)}\n+          onClick={handleDeleteButtonClick}\n         >\n           <DeleteIconRound className=\"size-full\" />\n         </Button>\n       </div>\n"
                 }
             ],
             "date": 1716040098681,

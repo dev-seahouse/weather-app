@@ -13,6 +13,8 @@ export function WeatherIcon({ whetherCode = 700 }: { whetherCode?: number }) {
   const imgClass = cn(`
     size-[10.5rem]
 
+    hover:animate-wiggle
+
     sm:size-[290px]
   `);
 
