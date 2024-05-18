@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/stores/weather/slices/currentWeatherSlice.types.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1716013238292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716013292293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,10 @@\n   weather: Weather;\n   timeStamp: string; // date when weather info is retrieved\n }\n \n-export interface CurrentWeatherActions {}\n+export interface CurrentWeatherActions {\n+}\n \n export interface CurrentWeatherSlice {\n   currentWeather: CurrentWeatherState & CurrentWeatherActions;\n }\n"
+                },
+                {
+                    "date": 1716013306259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n   humidity: number;\n }\n \n export interface CurrentWeatherState {\n-  location: Location;\n-  weather: Weather;\n+  locationInfo: Location;\n+  weatherInfo: Weather;\n   timeStamp: string; // date when weather info is retrieved\n }\n \n export interface CurrentWeatherActions {}\n"
+                },
+                {
+                    "date": 1716013365716,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   timeStamp: string; // date when weather info is retrieved\n }\n \n export interface CurrentWeatherActions {\n-  updateLocationInfo: ()\n+  updateLocationInfo: (location: Location) => void\n }\n \n export interface CurrentWeatherSlice {\n   currentWeather: CurrentWeatherState & CurrentWeatherActions;\n"
+                }
+            ],
+            "date": 1716013238292,
+            "name": "Commit-0",
+            "content": "export interface Location {\n  longitude: number;\n  latitude: number;\n  countryCode: string; // 2 letters\n  regionName: string; //\n}\n\nexport interface Weather {\n  temperatureF: number; // temp in fahrenheit\n  weather: string; // e.g Rain\n  weatherCode: number;\n  humidity: number;\n}\n\nexport interface CurrentWeatherState {\n  location: Location;\n  weather: Weather;\n  timeStamp: string; // date when weather info is retrieved\n}\n\nexport interface CurrentWeatherActions {}\n\nexport interface CurrentWeatherSlice {\n  currentWeather: CurrentWeatherState & CurrentWeatherActions;\n}\n"
+        }
+    ]
+}

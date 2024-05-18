@@ -1,11 +1,20 @@
-export function DisplayWeather() {
+import { useSelectLocationInfo } from "@/stores/weather/useWeatherStore.selectors";
+import { cn } from "@/utils/cn";
+
+export function DisplayWeather({ className }: { className?: string }) {
+  const { longitude, latitude, countryCode, regionName } =
+    useSelectLocationInfo();
+
   return (
     <div
-      className={`
-        w-full rounded-lg text-white
+      className={cn(
+        `
+          w-full rounded-lg text-white
 
-        sm:max-w-full
-      `}
+          sm:max-w-full
+        `,
+        className,
+      )}
     >
       <div
         className={`
@@ -34,7 +43,7 @@ export function DisplayWeather() {
               sm:text-base
             `}
           >
-            H: 29° L: 26°
+            H: {parseInt(`${longitude}`)}° L: {parseInt(`${latitude}`)}°
           </div>
           <div
             className={`
@@ -43,26 +52,27 @@ export function DisplayWeather() {
               sm:text-base
             `}
           >
-            Johor, MY
+            {regionName || ""}, {countryCode || ""}
           </div>
         </div>
         <div
           className={`
             flex flex-col justify-end gap-1 whitespace-nowrap text-right
 
-            sm:ml-auto sm:grow sm:flex-row sm:items-end sm:justify-between
-            sm:text-left sm:text-base
+            sm:relative sm:right-10 sm:grow sm:flex-row sm:items-end
+            sm:justify-between sm:gap-8 sm:text-left sm:text-base
           `}
         >
           <div
             className={`
-              mt-auto text-sm
+              mt-auto text-sm font-normal
 
               sm:order-3 sm:mt-0 sm:text-base
             `}
           >
             <div>Clouds</div>
           </div>
+
           <div
             className={`
               mt-auto text-sm
@@ -72,6 +82,7 @@ export function DisplayWeather() {
           >
             <div>Humidity: 58%</div>
           </div>
+
           <div
             className={`
               mt-auto text-sm

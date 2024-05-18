@@ -8,6 +8,9 @@ import type { Option } from "@/components/ui/AutoComplete/AutoComplete.types";
 import { DisplayWeather } from "@/features/DisplayWeather";
 import SearchIcon from "@/icons/searchIcon";
 import { AppProvider } from "@/providers/AppProvider";
+import type { Location } from "@/stores/weather/slices/currentWeatherSlice.types";
+import { useSetLocationInfo } from "@/stores/weather/useWeatherStore.selectors";
+import { get } from "@/utils/get";
 
 async function fetchSuggestions(query: string) {
   const res = await getPlaces({
@@ -22,10 +25,29 @@ async function fetchSuggestions(query: string) {
 }
 
 function App() {
+  const setLocation = useSetLocationInfo();
   function handleOptionSelected(
     item: Option<GetPlacesResponse["features"][0]>,
   ) {
-    
+    const newLocation = {
+      longitude: get(
+        item,
+        "value.properties.coordinates.longitude",
+        0,
+      ) as number,
+      latitude: get(item, "value.properties.coordinates.latitude", 0) as number,
+      countryCode: get(
+        item,
+        "properties.context.country.country_code",
+        "",
+      ) as string,
+      regionName: get(
+        item,
+        "value.properties.context.region.name",
+        "",
+      ) as string,
+    } satisfies Location;
+    setLocation(newLocation);
   }
 
   const [inputValue, setInputValue] = React.useState("");
@@ -39,7 +61,7 @@ function App() {
             className={`
               flex items-center gap-2 pb-[8.69rem]
 
-              sm:gap-4
+              sm:gap-4 sm:pb-28
             `}
           >
             <AutoComplete
@@ -67,8 +89,8 @@ function App() {
           {/* weather info pane */}
           <section
             className={`
-              flex items-center justify-center rounded-lg bg-[#1A1A1A]/[.3] p-5
-              backdrop-blur-sm
+              flex items-center justify-center overflow-auto rounded-lg
+              bg-[#1A1A1A]/[.3] p-5 backdrop-blur-sm
 
               sm:p-11
             `}
