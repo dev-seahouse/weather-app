@@ -70,6 +70,10 @@
   * {
     @apply border-border;
   }
+
+  html {
+    font-family: "Noto Sans", sans-serif;
+  }
   body {
     @apply bg-background text-foreground;
   }

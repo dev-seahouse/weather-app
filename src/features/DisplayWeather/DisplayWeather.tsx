@@ -2,51 +2,84 @@ export function DisplayWeather() {
   return (
     <div
       className={`
-        w-full max-w-md rounded-lg p-6 text-white
+        w-full rounded-lg text-white
 
         sm:max-w-full
       `}
     >
-      <div className="mb-2 text-xl font-semibold">Today&apos;s Weather</div>
-      <div className="flex items-end justify-between">
-        <div>
-          <div className="text-6xl font-bold leading-none">26°</div>
-          <div className="mt-1 text-sm">H: 29° L: 26°</div>
-          <div className="mt-2 text-xl font-semibold">Johor, MY</div>
+      <div
+        className={`
+          text-sm font-normal
+
+          sm:text-base
+        `}
+      >
+        Today&apos;s Weather
+      </div>
+      <div className={`flex items-end justify-between`}>
+        <div className="sm:flex sm:flex-col">
+          <div
+            className={`
+              text-[4.275rem] font-bold leading-none
+
+              sm:text-[6.6rem]
+            `}
+          >
+            26°
+          </div>
+          <div
+            className={`
+              mb-1 text-sm
+
+              sm:text-base
+            `}
+          >
+            H: 29° L: 26°
+          </div>
+          <div
+            className={`
+              text-sm font-semibold
+
+              sm:text-base
+            `}
+          >
+            Johor, MY
+          </div>
         </div>
         <div
           className={`
-            flex flex-col justify-end text-right
+            flex flex-col justify-end gap-1 whitespace-nowrap text-right
 
-            sm:flex-row sm:items-end sm:space-x-4
+            sm:ml-auto sm:grow sm:flex-row sm:items-end sm:justify-between
+            sm:text-left sm:text-base
           `}
         >
           <div
             className={`
-              mt-auto
+              mt-auto text-sm
 
-              sm:mt-0 sm:text-right
+              sm:order-3 sm:mt-0 sm:text-base
             `}
           >
-            <div>01-09-2022 09:41am</div>
+            <div>Clouds</div>
           </div>
           <div
             className={`
-              mt-auto
+              mt-auto text-sm
 
-              sm:mt-0 sm:text-right
+              sm:order-2 sm:mt-0 sm:text-base
             `}
           >
             <div>Humidity: 58%</div>
           </div>
           <div
             className={`
-              mt-auto
+              mt-auto text-sm
 
-              sm:mt-0 sm:text-right
+              sm:order-1 sm:mt-0 sm:text-base
             `}
           >
-            <div>Clouds</div>
+            <div>01-09-2022 09:41am</div>
           </div>
         </div>
       </div>

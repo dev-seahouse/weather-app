@@ -32,7 +32,7 @@ function App() {
     <AppProvider>
       <FullScreenBg>
         <main className="container py-5">
-          {/* Search */}
+          {/* header */}
           <header
             className={`
               flex items-center gap-2 pb-[8.69rem]
@@ -49,7 +49,7 @@ function App() {
               labelClassName="text-white/[.5] peer-focus:text-white/[.5]"
               inputClassName={`border-transparent bg-[#1A1A1A]/[.5] text-white`}
               debounceTimeout={1000}
-              popoverClassName="translate-x-5 md:translate-x-8"
+              popoverClassName="translate-x-5 sm:translate-x-8"
             />
             <div>
               <SearchIcon
@@ -62,7 +62,7 @@ function App() {
             </div>
           </header>
 
-          {/*  */}
+          {/* weather info pane */}
           <section className="flex">
             <DisplayWeather />
           </section>

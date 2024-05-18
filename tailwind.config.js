@@ -7,10 +7,13 @@ module.exports = {
   ],
   prefix: "",
   theme: {
+    fontFamily: {
+      sans: ["Nato Sans", "sans-serif"]
+    },
     screens: {
       "xs": "360px",
 
-      'sm': '600px',
+      'sm': '640px',
 
       'md': '768px',
 
@@ -24,8 +27,8 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
-        "xs": "360px",
-        "sm": "600px",
+        "xs": "400px",
+        "sm": "640px",
       },
     },
     extend: {
