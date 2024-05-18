@@ -1,0 +1,102 @@
+{
+    "sourceFile": "src/features/DisplayWeather/DisplayWeather.hooks.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 21,
+            "patches": [
+                {
+                    "date": 1716027466923,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716027486475,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,6 @@\n-export function useGetWeatherQuery() {}\n+export function useGetWeatherQuery({\n+  \n+}) {\n \n+}\n+\n"
+                },
+                {
+                    "date": 1716027566331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n+import { useQuery } from \"@tanstack/react-query\";\n+\n export function useGetWeatherQuery({\n-  \n+\n }) {\n-\n+  return useQuery()\n }\n \n"
+                },
+                {
+                    "date": 1716027577710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,5 @@\n import { useQuery } from \"@tanstack/react-query\";\n \n-export function useGetWeatherQuery({\n-\n-}) {\n-  return useQuery()\n+export function useGetWeatherQuery({}) {\n+  return useQuery();\n }\n-\n"
+                },
+                {
+                    "date": 1716027594999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n import { useQuery } from \"@tanstack/react-query\";\n \n-export function useGetWeatherQuery({}) {\n+export function useGetWeatherQuery({longitude, }) {\n   return useQuery();\n }\n"
+                },
+                {
+                    "date": 1716027616036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n import { useQuery } from \"@tanstack/react-query\";\n \n-export function useGetWeatherQuery({longitude, }) {\n+export function useGetWeatherQuery({longitude, latitude}) {\n   return useQuery();\n }\n"
+                },
+                {
+                    "date": 1716027675574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n import { useQuery } from \"@tanstack/react-query\";\n \n-export function useGetWeatherQuery({longitude, latitude}) {\n+export function useGetWeatherQuery(query: { lon: string; lat: string }) {\n   return useQuery();\n }\n"
+                },
+                {
+                    "date": 1716027722140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n import { useQuery } from \"@tanstack/react-query\";\n \n export function useGetWeatherQuery(query: { lon: string; lat: string }) {\n-  return useQuery();\n+  return useQuery({\n+    queryKey: [\"getWeather\", lon, lat],\n+  });\n }\n"
+                },
+                {
+                    "date": 1716027746222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { useQuery } from \"@tanstack/react-query\";\n \n export function useGetWeatherQuery(query: { lon: string; lat: string }) {\n   return useQuery({\n-    queryKey: [\"getWeather\", lon, lat],\n+    queryKey: [\"getWeather\", query.lon, query.lat],\n   });\n }\n"
+                },
+                {
+                    "date": 1716027761908,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,6 +2,7 @@\n \n export function useGetWeatherQuery(query: { lon: string; lat: string }) {\n   return useQuery({\n     queryKey: [\"getWeather\", query.lon, query.lat],\n+    queryFn: ()=> \n   });\n }\n"
+                },
+                {
+                    "date": 1716027771430,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,7 @@\n \n export function useGetWeatherQuery(query: { lon: string; lat: string }) {\n   return useQuery({\n     queryKey: [\"getWeather\", query.lon, query.lat],\n-    queryFn: ()=> \n+    queryFn: ()=> get\n   });\n }\n"
+                },
+                {
+                    "date": 1716027785123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n+import { getCurrentWeather } from \"@/api/OpenWeatherApi\";\n import { useQuery } from \"@tanstack/react-query\";\n \n export function useGetWeatherQuery(query: { lon: string; lat: string }) {\n   return useQuery({\n     queryKey: [\"getWeather\", query.lon, query.lat],\n-    queryFn: ()=> get\n+    queryFn: () => getCurrentWeather(query);\n   });\n }\n"
+                },
+                {
+                    "date": 1716027791838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n \n export function useGetWeatherQuery(query: { lon: string; lat: string }) {\n   return useQuery({\n     queryKey: [\"getWeather\", query.lon, query.lat],\n-    queryFn: () => getCurrentWeather(query);\n+    queryFn: () => getCurrentWeather(query),\n   });\n }\n"
+                },
+                {
+                    "date": 1716027808142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { getCurrentWeather } from \"@/api/OpenWeatherApi\";\n import { useQuery } from \"@tanstack/react-query\";\n \n-export function useGetWeatherQuery(query: { lon: string; lat: string }) {\n+export function useGetWeatherQuery(query: { lon: number; lat: number }) {\n   return useQuery({\n     queryKey: [\"getWeather\", query.lon, query.lat],\n     queryFn: () => getCurrentWeather(query),\n   });\n"
+                },
+                {
+                    "date": 1716027988915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { getCurrentWeather } from \"@/api/OpenWeatherApi\";\n import { useQuery } from \"@tanstack/react-query\";\n \n-export function useGetWeatherQuery(query: { lon: number; lat: number }) {\n+export function useGetWeatherQuery(query: { lon: number; lat: number }, queryOptions) {\n   return useQuery({\n     queryKey: [\"getWeather\", query.lon, query.lat],\n     queryFn: () => getCurrentWeather(query),\n   });\n"
+                },
+                {
+                    "date": 1716028199539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,11 @@\n import { getCurrentWeather } from \"@/api/OpenWeatherApi\";\n-import { useQuery } from \"@tanstack/react-query\";\n \n-export function useGetWeatherQuery(query: { lon: number; lat: number }, queryOptions) {\n-  return useQuery({\n+export function useGetWeatherQuery(\n+  query: { lon: number; lat: number },\n+  queryOptions,\n+) {\n+  return queryOptions({\n     queryKey: [\"getWeather\", query.lon, query.lat],\n     queryFn: () => getCurrentWeather(query),\n   });\n }\n"
+                },
+                {
+                    "date": 1716028205133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,7 @@\n import { getCurrentWeather } from \"@/api/OpenWeatherApi\";\n \n-export function useGetWeatherQuery(\n-  query: { lon: number; lat: number },\n-  queryOptions,\n-) {\n+export function useGetWeatherQuery(query: { lon: number; lat: number }) {\n   return queryOptions({\n     queryKey: [\"getWeather\", query.lon, query.lat],\n     queryFn: () => getCurrentWeather(query),\n   });\n"
+                },
+                {
+                    "date": 1716028242902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,11 @@\n import { getCurrentWeather } from \"@/api/OpenWeatherApi\";\n \n-export function useGetWeatherQuery(query: { lon: number; lat: number }) {\n-  return queryOptions({\n+export function useGetWeatherQuery(\n+  query: { lon: number; lat: number },\n+  queryOptions,\n+) {\n+  return {\n     queryKey: [\"getWeather\", query.lon, query.lat],\n     queryFn: () => getCurrentWeather(query),\n-  });\n+  };\n }\n"
+                },
+                {
+                    "date": 1716028255577,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { getCurrentWeather } from \"@/api/OpenWeatherApi\";\n \n export function useGetWeatherQuery(\n   query: { lon: number; lat: number },\n-  queryOptions,\n+  onSuccess\n ) {\n   return {\n     queryKey: [\"getWeather\", query.lon, query.lat],\n     queryFn: () => getCurrentWeather(query),\n"
+                },
+                {
+                    "date": 1716028263679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,7 @@\n import { getCurrentWeather } from \"@/api/OpenWeatherApi\";\n \n-export function useGetWeatherQuery(\n-  query: { lon: number; lat: number },\n-  onSuccess\n-) {\n+export function useGetWeatherQuery(query: { lon: number; lat: number }) {\n   return {\n     queryKey: [\"getWeather\", query.lon, query.lat],\n     queryFn: () => getCurrentWeather(query),\n   };\n"
+                },
+                {
+                    "date": 1716028482153,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import { getCurrentWeather } from \"@/api/OpenWeatherApi\";\n+import { useQuery } from \"@tanstack/react-query\";\n \n export function useGetWeatherQuery(query: { lon: number; lat: number }) {\n-  return {\n+  return useQuery({\n     queryKey: [\"getWeather\", query.lon, query.lat],\n     queryFn: () => getCurrentWeather(query),\n-  };\n+  });\n }\n"
+                },
+                {
+                    "date": 1716028597885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,7 @@\n export function useGetWeatherQuery(query: { lon: number; lat: number }) {\n   return useQuery({\n     queryKey: [\"getWeather\", query.lon, query.lat],\n     queryFn: () => getCurrentWeather(query),\n+    select: res => res.data,\n   });\n }\n"
+                }
+            ],
+            "date": 1716027466923,
+            "name": "Commit-0",
+            "content": "export function useGetWeatherQuery() {}\n\n"
+        }
+    ]
+}

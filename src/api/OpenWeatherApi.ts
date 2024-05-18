@@ -20,6 +20,7 @@ export async function getCurrentWeather(payload: GetCurrentWeatherRequest) {
   });
 }
 
+// @deprecated: don't perform well
 export async function getCities(payload: GetCitiesRequest) {
   const apiUrl = `${baseURL}/geo/1.0/direct`;
   return instance.get(apiUrl, {

@@ -1,9 +1,32 @@
-import { useSelectLocationInfo } from "@/stores/weather/useWeatherStore.selectors";
+import {
+  useGetWeatherQuery,
+} from "@/features/DisplayWeather/DisplayWeather.hooks";
+import {
+  useSelectLocationInfo,
+  useSetWeatherInfo,
+} from "@/stores/weather/useWeatherStore.selectors";
 import { cn } from "@/utils/cn";
 
 export function DisplayWeather({ className }: { className?: string }) {
   const { longitude, latitude, countryCode, regionName } =
     useSelectLocationInfo();
+
+  const setWeatherInfo = useSetWeatherInfo();
+
+  const { data: weatherResponse, isSuccess } = useGetWeatherQuery({
+    lon: longitude,
+    lat: latitude,
+  });
+
+  if (isSuccess) {
+    setWeatherInfo({
+      temperatureF: weatherResponse.main.temp,
+      weather: weatherResponse.weather[0].main,
+      weatherCode: weatherResponse.weather[0].id,
+      humidity: weatherResponse.main.humidity,
+      timeStamp: new Date().toISOString(),
+    });
+  }
 
   return (
     <div
@@ -60,7 +83,7 @@ export function DisplayWeather({ className }: { className?: string }) {
             flex flex-col justify-end gap-1 whitespace-nowrap text-right
 
             sm:right-10 sm:grow sm:flex-row sm:items-end sm:justify-between
-            sm:text-left sm:text-base
+            sm:gap-3 sm:text-left sm:text-base
           `}
         >
           <div
@@ -70,7 +93,7 @@ export function DisplayWeather({ className }: { className?: string }) {
               sm:order-3 sm:mt-0 sm:text-base
             `}
           >
-            <div>Clouds</div>
+            <div>{weatherResponse?.weather[0].main}</div>
           </div>
 
           <div
@@ -80,7 +103,7 @@ export function DisplayWeather({ className }: { className?: string }) {
               sm:order-2 sm:mt-0 sm:text-base
             `}
           >
-            <div>Humidity: 58%</div>
+            <div>Humidity:{weatherResponse?.main.humidity}%</div>
           </div>
 
           <div

@@ -11,3 +11,7 @@ export const useSelectLocationInfo = () => {
 export const useSetLocationInfo = () => {
   return useWeatherStore(state => state.currentWeather.setLocationInfo);
 };
+
+export const useSetWeatherInfo = () => {
+  return useWeatherStore(state => state.currentWeather.setWeatherInfo);
+};
