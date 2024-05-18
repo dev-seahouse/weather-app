@@ -24,7 +24,9 @@ async function fetchSuggestions(query: string) {
 function App() {
   function handleOptionSelected(
     item: Option<GetPlacesResponse["features"][0]>,
-  ) {}
+  ) {
+    
+  }
 
   const [inputValue, setInputValue] = React.useState("");
 

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/api/MapBoxApi.types.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1716007891307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1716007891307,
+            "name": "Commit-0",
+            "content": "// getPlaces\nexport interface GetPlacesRequest {\n  q: string;\n}\n\nexport interface GetPlacesResponse {\n  type: string;\n  features: Feature[];\n  attribution: string;\n}\n\ninterface Feature {\n  type: string;\n  id: string;\n  geometry: Geometry;\n  properties: Properties;\n}\n\ninterface Properties {\n  mapbox_id: string;\n  feature_type: string;\n  full_address: string;\n  name: string;\n  name_preferred: string;\n  coordinates: Coordinates;\n  place_formatted: string;\n  bbox?: number[];\n  context: Context;\n}\n\ninterface Context {\n  region: Region;\n  place: Place;\n  country: Country;\n  locality: Locality;\n  street?: Street;\n  postcode?: Street;\n}\n\ninterface Street {\n  mapbox_id: string;\n  name: string;\n}\n\ninterface Locality {\n  mapbox_id: string;\n  name: string;\n  wikidata_id: string;\n}\n\ninterface Country {\n  mapbox_id: string;\n  name: string;\n  wikidata_id: string;\n  country_code: string;\n  country_code_alpha_3: string;\n}\n\ninterface Place {\n  mapbox_id: string;\n  name: string;\n  wikidata_id: string;\n  short_code: string;\n}\n\nexport interface Region {\n  mapbox_id: string;\n  name: string;\n  wikidata_id: string;\n  region_code: string;\n  region_code_full: string;\n}\n\nexport interface Coordinates {\n  longitude: number;\n  latitude: number;\n}\n\ninterface Geometry {\n  type: string;\n  coordinates: number[];\n}\n"
+        }
+    ]
+}

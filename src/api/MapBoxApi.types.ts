@@ -63,7 +63,7 @@ interface Place {
   short_code: string;
 }
 
-interface Region {
+export interface Region {
   mapbox_id: string;
   name: string;
   wikidata_id: string;
@@ -71,7 +71,7 @@ interface Region {
   region_code_full: string;
 }
 
-interface Coordinates {
+export interface Coordinates {
   longitude: number;
   latitude: number;
 }
