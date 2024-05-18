@@ -12,6 +12,7 @@ import { formatUnixTimestamp } from "@/utils/formatTimeStamp";
 export function DisplayWeather({ className }: { className?: string }) {
   const { longitude, latitude, countryCode, regionName } =
     useSelectLocationInfo();
+
   const updateWeatherInfo = useSetWeatherInfo();
 
   const {

@@ -12,7 +12,11 @@ export function SearchHistory({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "w-full rounded-3xl bg-[rgba(26,26,26,0.3)] px-5 py-[1.38rem]",
+        `
+          w-full rounded-3xl bg-[rgba(26,26,26,0.3)] px-5 py-[1.38rem]
+
+          hover:shadow-xl
+        `,
         className,
       )}
     >
