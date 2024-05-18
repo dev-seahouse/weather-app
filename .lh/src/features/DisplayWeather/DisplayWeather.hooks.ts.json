@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 21,
+            "activePatchIndex": 22,
             "patches": [
                 {
                     "date": 1716027466923,
@@ -92,6 +92,10 @@
                 {
                     "date": 1716028597885,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,7 @@\n export function useGetWeatherQuery(query: { lon: number; lat: number }) {\n   return useQuery({\n     queryKey: [\"getWeather\", query.lon, query.lat],\n     queryFn: () => getCurrentWeather(query),\n+    select: res => res.data,\n   });\n }\n"
+                },
+                {
+                    "date": 1716041755000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,6 +5,8 @@\n   return useQuery({\n     queryKey: [\"getWeather\", query.lon, query.lat],\n     queryFn: () => getCurrentWeather(query),\n     select: res => res.data,\n+    refetchOnMount:false,\n+    refetchOnWindowFocus:false\n   });\n }\n"
                 }
             ],
             "date": 1716027466923,

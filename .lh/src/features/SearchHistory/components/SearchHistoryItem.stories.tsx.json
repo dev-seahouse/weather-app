@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/features/SearchHistory/components/SearchHistoryItem.stories.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1716040689483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716040710585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,12 @@\n-import {\n-  SearchHistoryItem,\n-} from \"@/components/SearchHistoryItem/SearchHistoryItem\";\n import type {\n   SearchHistoryItem as SearchHistoryItemType,\n } from \"@/stores/weather/slices/searchHistorySlice.types\";\n import type {\n   Meta,\n   StoryObj,\n } from \"@storybook/react\";\n \n-import {\n-  withProviders,\n-} from \"../path-to-storybook-helpers\"; // Update with the actual path to your Storybook providers helper\n-\n const exampleHistoryItem: SearchHistoryItemType = {\n   id: \"1\",\n   locationInfo: {\n     longitude: 103.851959,\n"
+                },
+                {
+                    "date": 1716040718698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,7 @@\n+import {\n+  SearchHistoryItem,\n+} from \"@/features/SearchHistory/components/SearchHistoryItem\";\n import type {\n   SearchHistoryItem as SearchHistoryItemType,\n } from \"@/stores/weather/slices/searchHistorySlice.types\";\n import type {\n@@ -25,9 +28,8 @@\n \n const meta = {\n   title: \"components/SearchHistoryItem\",\n   component: SearchHistoryItem,\n-  decorators: [withProviders], // Add any required providers/decorators here\n   parameters: {\n     layout: \"padded\",\n     backgrounds: {\n       default: \"white\",\n"
+                },
+                {
+                    "date": 1716040752068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,18 +17,12 @@\n     countryCode: \"SG\",\n     regionName: \"Singapore\",\n   },\n   timeStamp: new Date().toISOString(),\n-  weatherInfo: {\n-    temperatureF: 86,\n-    weather: \"Clear\",\n-    weatherCode: 800,\n-    humidity: 70,\n-  },\n };\n \n const meta = {\n-  title: \"components/SearchHistoryItem\",\n+  title: \"Features/SearchHistory/components/SearchHistoryItem\",\n   component: SearchHistoryItem,\n   parameters: {\n     layout: \"padded\",\n     backgrounds: {\n"
+                },
+                {
+                    "date": 1716045372640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n   component: SearchHistoryItem,\n   parameters: {\n     layout: \"padded\",\n     backgrounds: {\n-      default: \"white\",\n+      default: \"theme\",\n       values: [\n         {\n           name: \"white\",\n           value: \"#fff\",\n"
+                }
+            ],
+            "date": 1716040689483,
+            "name": "Commit-0",
+            "content": "import {\n  SearchHistoryItem,\n} from \"@/components/SearchHistoryItem/SearchHistoryItem\";\nimport type {\n  SearchHistoryItem as SearchHistoryItemType,\n} from \"@/stores/weather/slices/searchHistorySlice.types\";\nimport type {\n  Meta,\n  StoryObj,\n} from \"@storybook/react\";\n\nimport {\n  withProviders,\n} from \"../path-to-storybook-helpers\"; // Update with the actual path to your Storybook providers helper\n\nconst exampleHistoryItem: SearchHistoryItemType = {\n  id: \"1\",\n  locationInfo: {\n    longitude: 103.851959,\n    latitude: 1.29027,\n    countryCode: \"SG\",\n    regionName: \"Singapore\",\n  },\n  timeStamp: new Date().toISOString(),\n  weatherInfo: {\n    temperatureF: 86,\n    weather: \"Clear\",\n    weatherCode: 800,\n    humidity: 70,\n  },\n};\n\nconst meta = {\n  title: \"components/SearchHistoryItem\",\n  component: SearchHistoryItem,\n  decorators: [withProviders], // Add any required providers/decorators here\n  parameters: {\n    layout: \"padded\",\n    backgrounds: {\n      default: \"white\",\n      values: [\n        {\n          name: \"white\",\n          value: \"#fff\",\n        },\n        {\n          name: \"theme\",\n          value: \"#6a44c8\",\n        },\n      ],\n    },\n  },\n} satisfies Meta<typeof SearchHistoryItem>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\nexport const Default: Story = {\n  args: {\n    history: exampleHistoryItem,\n  },\n};\n"
+        }
+    ]
+}

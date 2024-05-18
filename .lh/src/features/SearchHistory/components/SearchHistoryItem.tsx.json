@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/features/SearchHistory/components/SearchHistoryItem.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1716040098681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716040163122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,21 +5,23 @@\n import { SearchIconRound } from \"@/icons/SearchIconRound\";\n import type {\n   SearchHistoryItem as SearchHistoryItemType,\n } from \"@/stores/weather/slices/searchHistorySlice.types\";\n-import { useDeleteHistory } from \"@/stores/weather/useWeatherStore.selectors\";\n+import {\n+  useDeleteSearchHistory,\n+} from \"@/stores/weather/useWeatherStore.selectors\";\n \n export const SearchHistoryItem: React.FC<{\n   history: SearchHistoryItemType;\n }> = ({ history }) => {\n-  const deleteHistory = useDeleteHistory();\n+  const deleteHistory = useDeleteSearchHistory();\n \n   return (\n     <div\n       className={`\n-      mb-4 flex items-center justify-between rounded-lg bg-[rgba(26,26,26,0.5)]\n-      p-4\n-    `}\n+        mb-4 flex items-center justify-between rounded-lg\n+        bg-[rgba(26,26,26,0.5)] p-4\n+      `}\n     >\n       <div>\n         <div className=\"text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n"
+                },
+                {
+                    "date": 1716040412581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n import type React from \"react\";\n \n-import { Button } from \"@/components/ui/Button\";\n import { DeleteIconRound } from \"@/icons/DeleteIconRound\";\n import { SearchIconRound } from \"@/icons/SearchIconRound\";\n import type {\n   SearchHistoryItem as SearchHistoryItemType,\n"
+                },
+                {
+                    "date": 1716040458656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import type React from \"react\";\n \n+import { Button } from \"@/components/ui/Button/Button\";\n import { DeleteIconRound } from \"@/icons/DeleteIconRound\";\n import { SearchIconRound } from \"@/icons/SearchIconRound\";\n import type {\n   SearchHistoryItem as SearchHistoryItemType,\n"
+                },
+                {
+                    "date": 1716040907792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n           {new Date(history.timeStamp).toLocaleString()}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n-        <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n+        <Button size=\"icon\" className=\"size-[2.125rem] p-0\">\n           <SearchIconRound className=\"size-full\" />\n         </Button>\n         <Button\n           variant=\"ghost\"\n"
+                },
+                {
+                    "date": 1716041058081,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,10 +30,10 @@\n           {new Date(history.timeStamp).toLocaleString()}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n-        <Button size=\"icon\" className=\"size-[2.125rem] p-0\">\n-          <SearchIconRound className=\"size-full\" />\n+        <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n+          <SearchIconRound className=\"size-full text-white\" />\n         </Button>\n         <Button\n           variant=\"ghost\"\n           size=\"icon\"\n"
+                },
+                {
+                    "date": 1716041063910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n         <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n-          <SearchIconRound className=\"size-full text-white\" />\n+          <SearchIconRound className=\"size-full text-sm text-white\" />\n         </Button>\n         <Button\n           variant=\"ghost\"\n           size=\"icon\"\n"
+                },
+                {
+                    "date": 1716041079740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,15 @@\n           {new Date(history.timeStamp).toLocaleString()}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n-        <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n+        <Button\n+          variant=\"ghost\"\n+          size=\"icon\"\n+          className={`\n+          size-[2.125rem] p-0 text-white\n+        `}\n+        >\n           <SearchIconRound className=\"size-full text-sm text-white\" />\n         </Button>\n         <Button\n           variant=\"ghost\"\n"
+                },
+                {
+                    "date": 1716041089976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,15 +30,9 @@\n           {new Date(history.timeStamp).toLocaleString()}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n-        <Button\n-          variant=\"ghost\"\n-          size=\"icon\"\n-          className={`\n-          size-[2.125rem] p-0 text-white\n-        `}\n-        >\n+        <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n           <SearchIconRound className=\"size-full text-sm text-white\" />\n         </Button>\n         <Button\n           variant=\"ghost\"\n"
+                }
+            ],
+            "date": 1716040098681,
+            "name": "Commit-0",
+            "content": "import type React from \"react\";\n\nimport { Button } from \"@/components/ui/Button\";\nimport { DeleteIconRound } from \"@/icons/DeleteIconRound\";\nimport { SearchIconRound } from \"@/icons/SearchIconRound\";\nimport type {\n  SearchHistoryItem as SearchHistoryItemType,\n} from \"@/stores/weather/slices/searchHistorySlice.types\";\nimport { useDeleteHistory } from \"@/stores/weather/useWeatherStore.selectors\";\n\nexport const SearchHistoryItem: React.FC<{\n  history: SearchHistoryItemType;\n}> = ({ history }) => {\n  const deleteHistory = useDeleteHistory();\n\n  return (\n    <div\n      className={`\n      mb-4 flex items-center justify-between rounded-lg bg-[rgba(26,26,26,0.5)]\n      p-4\n    `}\n    >\n      <div>\n        <div className=\"text-sm font-normal text-white\">\n          {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n        </div>\n        <div className=\"text-xs font-normal text-[rgba(255,255,255,0.5)]\">\n          {new Date(history.timeStamp).toLocaleString()}\n        </div>\n      </div>\n      <div className=\"flex items-center gap-2\">\n        <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n          <SearchIconRound className=\"size-full\" />\n        </Button>\n        <Button\n          variant=\"ghost\"\n          size=\"icon\"\n          className=\"size-[2.125rem] p-0\"\n          onClick={() => deleteHistory(history.id)}\n        >\n          <DeleteIconRound className=\"size-full\" />\n        </Button>\n      </div>\n    </div>\n  );\n};\n"
+        }
+    ]
+}

@@ -6,5 +6,7 @@ export function useGetWeatherQuery(query: { lon: number; lat: number }) {
     queryKey: ["getWeather", query.lon, query.lat],
     queryFn: () => getCurrentWeather(query),
     select: res => res.data,
+    refetchOnMount:false,
+    refetchOnWindowFocus:false
   });
 }

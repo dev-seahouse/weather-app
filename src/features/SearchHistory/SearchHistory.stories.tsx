@@ -1,16 +1,16 @@
-import { DisplayWeather } from "@/features/DisplayWeather/DisplayWeather";
+import { SearchHistory } from "@/features/SearchHistory/SearchHistory";
 import type {
   Meta,
   StoryObj,
 } from "@storybook/react";
 
 const meta = {
-  title: "features/DisplayWeather",
-  component: DisplayWeather,
+  title: "Features/SearchHistory",
+  component: SearchHistory,
   parameters: {
     layout: "padded",
     backgrounds: {
-      default: "theme",
+      default: "white",
       values: [
         {
           name: "white",
@@ -23,12 +23,12 @@ const meta = {
       ],
     },
   },
-} satisfies Meta<typeof DisplayWeather>;
+} satisfies Meta<typeof SearchHistory>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Main: Story = {
+export const Default: Story = {
   args: {},
 };

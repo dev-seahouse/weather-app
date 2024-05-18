@@ -6,12 +6,16 @@ import { FullScreenBg } from "@/components/layouts/FullScreenBg";
 import { AutoComplete } from "@/components/ui/AutoComplete";
 import type { Option } from "@/components/ui/AutoComplete/AutoComplete.types";
 import { DisplayWeather } from "@/features/DisplayWeather";
+import { SearchHistory } from "@/features/SearchHistory";
 import SearchIcon from "@/icons/searchIcon";
 import { AppProvider } from "@/providers/AppProvider";
 import type {
   LocationInfo,
 } from "@/stores/weather/slices/currentWeatherSlice.types";
-import { useSetLocationInfo } from "@/stores/weather/useWeatherStore.selectors";
+import {
+  useAddSearchHistory,
+  useSetLocationInfo,
+} from "@/stores/weather/useWeatherStore.selectors";
 import { get } from "@/utils/get";
 
 async function fetchSuggestions(query: string) {
@@ -27,7 +31,10 @@ async function fetchSuggestions(query: string) {
 }
 
 function App() {
+  const [inputValue, setInputValue] = React.useState("");
+
   const setLocation = useSetLocationInfo();
+  const addHistory = useAddSearchHistory();
   function handleOptionSelected(
     item: Option<GetPlacesResponse["features"][0]>,
   ) {
@@ -39,9 +46,8 @@ function App() {
       regionName: get(item, "value.properties.context.region.name", "") ?? "",
     } satisfies LocationInfo;
     setLocation(newLocation);
+    addHistory(newLocation);
   }
-
-  const [inputValue, setInputValue] = React.useState("");
 
   return (
     <AppProvider>
@@ -64,7 +70,7 @@ function App() {
               labelClassName="text-white/[.5] peer-focus:text-white/[.5]"
               inputClassName={`border-transparent bg-[#1A1A1A]/[.5] text-white`}
               debounceTimeout={1000}
-              popoverClassName="translate-x-5 sm:translate-x-8"
+              popoverClassName="translate-x-3 sm:translate-x-7"
             />
             <div>
               <SearchIcon
@@ -80,13 +86,14 @@ function App() {
           {/* weather info pane */}
           <section
             className={`
-              flex items-center justify-center overflow-auto rounded-lg
+              flex flex-col items-center justify-center overflow-auto rounded-lg
               bg-[#1A1A1A]/[.3] p-5 backdrop-blur-sm
 
               sm:p-11
             `}
           >
-            <DisplayWeather />
+            <DisplayWeather className="pb-4" />
+            <SearchHistory />
           </section>
         </main>
       </FullScreenBg>

@@ -1,8 +1,15 @@
-import { type ChangeEvent, forwardRef, useRef, useState } from "react";
+import {
+  type ChangeEvent,
+  forwardRef,
+  useRef,
+  useState,
+} from "react";
 
 import { useDebounce } from "use-debounce";
 
-import { useFetchSuggestions } from "@/components/ui/AutoComplete/AutoComplete.hooks";
+import {
+  useFetchSuggestions,
+} from "@/components/ui/AutoComplete/AutoComplete.hooks";
 import { FloatingLabelInput } from "@/components/ui/FloatingLabelInput";
 import {
   Popover,
@@ -12,7 +19,10 @@ import {
 import { Spinner } from "@/components/ui/Spinner/Spinner";
 import { cn } from "@/utils/cn";
 
-import type { AutoCompleteProps, Option } from "./AutoComplete.types";
+import type {
+  AutoCompleteProps,
+  Option,
+} from "./AutoComplete.types";
 
 // TODO: refactor and clean up
 const AutoCompleteComponent = <T,>(
@@ -167,9 +177,9 @@ const AutoCompleteComponent = <T,>(
           {!isLoading && !isFetching && !suggestions?.length ? (
             <div
               className={`
-                px-6 py-[5px]
+                px-6 py-2
 
-                sm:text-base
+                sm:py-3 sm:text-base
               `}
             >
               {isError ? "Network Error" : "No result found"}

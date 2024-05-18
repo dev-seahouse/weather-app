@@ -11,7 +11,7 @@ module.exports = {
       sans: ["Nato Sans", "sans-serif"]
     },
     screens: {
-      "xs": "360px",
+      "xs": "400px",
 
       'sm': '640px',
 
@@ -27,7 +27,7 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
-        "xs": "400px",
+        "xs": "450px",
         "sm": "640px",
       },
     },

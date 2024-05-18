@@ -15,6 +15,7 @@ export function DisplayWeather({ className }: { className?: string }) {
   const {
     data: weatherResponse,
     isLoading,
+    isFetching,
     isError,
     dataUpdatedAt,
   } = useGetWeatherQuery({
@@ -22,9 +23,9 @@ export function DisplayWeather({ className }: { className?: string }) {
     lat: latitude,
   });
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return (
-      <div className="w-full rounded-lg text-white">
+      <div className="flex w-full justify-center rounded-lg text-white">
         <Spinner />
       </div>
     );
