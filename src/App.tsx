@@ -2,10 +2,11 @@ import React from "react";
 
 import { getPlaces } from "@/api/MapBoxApi";
 import type { GetPlacesResponse } from "@/api/MapBoxApi.types";
+import { FullScreenBg } from "@/components/layouts/FullScreenBg";
 import { AutoComplete } from "@/components/ui/AutoComplete";
 import type { Option } from "@/components/ui/AutoComplete/AutoComplete.types";
+import { DisplayWeather } from "@/features/DisplayWeather";
 import SearchIcon from "@/icons/searchIcon";
-import { FullScreenBg } from "@/layouts/FullScreenBg";
 import { AppProvider } from "@/providers/AppProvider";
 
 async function fetchSuggestions(query: string) {
@@ -23,8 +24,7 @@ async function fetchSuggestions(query: string) {
 function App() {
   function handleOptionSelected(
     item: Option<GetPlacesResponse["features"][0]>,
-  ) {
-  }
+  ) {}
 
   const [inputValue, setInputValue] = React.useState("");
 
@@ -63,7 +63,9 @@ function App() {
           </header>
 
           {/*  */}
-          <section className="flex border-2">hello</section>
+          <section className="flex border-2">
+            <DisplayWeather />
+          </section>
         </main>
       </FullScreenBg>
     </AppProvider>

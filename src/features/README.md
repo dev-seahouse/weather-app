@@ -1,0 +1,2 @@
+- features are isolated, internal components of features are not exported.
+- if there is a need to share components, refactor and move them into respectvie global shared folders
