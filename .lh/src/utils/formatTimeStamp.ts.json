@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 6,
+            "activePatchIndex": 9,
             "patches": [
                 {
                     "date": 1716037325614,
@@ -32,6 +32,18 @@
                 {
                     "date": 1716039038128,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,7 @@\n import { DateTime } from \"luxon\";\n \n-function formatTimestamp(timestamp: number): string {\n+export function formatTimestamp(timestamp: number): string {\n   const dateTime = DateTime.fromMillis(timestamp);\n \n   return dateTime.toFormat(\"dd-MM-yyyy hh:mma\");\n }\n-\n-// Example usage:\n-const timestamp = 1716037250621;\n-console.log(formatTimestamp(timestamp)); // Output: \"18-05-2024 01:23pm\"\n"
+                },
+                {
+                    "date": 1716048146389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { DateTime } from \"luxon\";\n \n-export function formatTimestamp(timestamp: number): string {\n+export function formatUnixTimestamp(timestamp: number): string {\n   const dateTime = DateTime.fromMillis(timestamp);\n \n   return dateTime.toFormat(\"dd-MM-yyyy hh:mma\");\n }\n"
+                },
+                {
+                    "date": 1716048359548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,10 @@\n import { DateTime } from \"luxon\";\n \n-export function formatUnixTimestamp(timestamp: number): string {\n+export function formatUnixTimestamp(\n+  timestamp: number,\n+  format = \"dd-MM-yyyy hh:mma\",\n+): string {\n   const dateTime = DateTime.fromMillis(timestamp);\n \n   return dateTime.toFormat(\"dd-MM-yyyy hh:mma\");\n }\n"
+                },
+                {
+                    "date": 1716048364828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,6 +5,6 @@\n   format = \"dd-MM-yyyy hh:mma\",\n ): string {\n   const dateTime = DateTime.fromMillis(timestamp);\n \n-  return dateTime.toFormat(\"dd-MM-yyyy hh:mma\");\n+  return dateTime.toFormat(format);\n }\n"
                 }
             ],
             "date": 1716037325614,

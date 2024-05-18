@@ -10,7 +10,6 @@ export interface WeatherInfo {
   weather: string;
   weatherCode: number;
   humidity: number;
-  timeStamp: string; // date when weather info is retrieved
 }
 
 export interface CurrentWeatherState {

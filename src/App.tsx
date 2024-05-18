@@ -51,9 +51,8 @@ function App() {
 
   return (
     <AppProvider>
-      <FullScreenBg>
+      <FullScreenBg className="overflow-auto">
         <main className="container py-5">
-          {/* header */}
           <header
             className={`
               flex items-center gap-2 pb-[8.69rem]
@@ -83,16 +82,21 @@ function App() {
             </div>
           </header>
 
-          {/* weather info pane */}
           <section
             className={`
-              flex flex-col items-center justify-center overflow-auto rounded-lg
+              flex flex-col items-center justify-center rounded-lg
               bg-[#1A1A1A]/[.3] p-5 backdrop-blur-sm
 
               sm:p-11
             `}
           >
-            <DisplayWeather className="pb-4" />
+            <DisplayWeather
+              className={`
+                pb-4
+
+                sm:pb-[1.62rem]
+              `}
+            />
             <SearchHistory />
           </section>
         </main>

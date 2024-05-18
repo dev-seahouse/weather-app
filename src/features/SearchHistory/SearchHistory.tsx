@@ -6,14 +6,25 @@ import {
 } from "@/stores/weather/useWeatherStore.selectors";
 import { cn } from "@/utils/cn";
 
-export function SearchHistory({ className }: { className: string }) {
+export function SearchHistory({ className }: { className?: string }) {
   const histories = useGetSearchHistories();
 
   return (
     <div
-      className={cn("w-full rounded-xl bg-[rgba(26,26,26,0.3)] p-4", className)}
+      className={cn(
+        "w-full rounded-3xl bg-[rgba(26,26,26,0.3)] px-5 py-[1.38rem]",
+        className,
+      )}
     >
-      <h2 className="mb-4 text-base font-normal text-white">Search History</h2>
+      <h2
+        className={`
+          mb-[1.62rem] text-sm font-normal text-white
+
+          sm:mb-5 sm:text-base
+        `}
+      >
+        Search History
+      </h2>
       {histories.length === 0 ? (
         <div className="text-sm font-normal text-white">
           No search history available.

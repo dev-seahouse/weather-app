@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/features/DisplayWeather/components/WeatherIcon.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1716056891318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716056900018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import { cn } from \"@/utils/cn\";\n+\n import cloudImg from \"../../assets/cloud.png\";\n import sunnyImg from \"../../assets/sun.png\";\n \n function WeatherIcon({ whetherCode = 700 }: { whetherCode: number }) {\n"
+                },
+                {
+                    "date": 1716056907377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n import cloudImg from \"../../assets/cloud.png\";\n import sunnyImg from \"../../assets/sun.png\";\n \n-function WeatherIcon({ whetherCode = 700 }: { whetherCode: number }) {\n+export function WeatherIcon({ whetherCode = 700 }: { whetherCode: number }) {\n   const containerClass = cn(`\n     absolute right-3 top-[-70px]\n \n     sm:top-[-90px]\n"
+                },
+                {
+                    "date": 1716056944217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n import cloudImg from \"../../assets/cloud.png\";\n import sunnyImg from \"../../assets/sun.png\";\n \n-export function WeatherIcon({ whetherCode = 700 }: { whetherCode: number }) {\n+export function WeatherIcon({ whetherCode = 700 }: { whetherCode?: number }) {\n   const containerClass = cn(`\n     absolute right-3 top-[-70px]\n \n     sm:top-[-90px]\n"
+                },
+                {
+                    "date": 1716057004282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { cn } from \"@/utils/cn\";\n \n-import cloudImg from \"../../assets/cloud.png\";\n-import sunnyImg from \"../../assets/sun.png\";\n+import cloudImg from \"../../../assets/cloud.png\";\n+import sunnyImg from \"../../../assets/sun.png\";\n \n export function WeatherIcon({ whetherCode = 700 }: { whetherCode?: number }) {\n   const containerClass = cn(`\n     absolute right-3 top-[-70px]\n"
+                }
+            ],
+            "date": 1716056891318,
+            "name": "Commit-0",
+            "content": "import cloudImg from \"../../assets/cloud.png\";\nimport sunnyImg from \"../../assets/sun.png\";\n\nfunction WeatherIcon({ whetherCode = 700 }: { whetherCode: number }) {\n  const containerClass = cn(`\n    absolute right-3 top-[-70px]\n\n    sm:top-[-90px]\n  `);\n\n  const imgClass = cn(`\n    size-[10.5rem]\n\n    sm:size-[290px]\n  `);\n\n  function startsWithEight(num: number) {\n    const numStr = num.toString();\n    return numStr.charAt(0) === \"8\";\n  }\n\n  // based on openWeather, a good weather have weather id 8xx\n  function isSunny(num: number) {\n    return startsWithEight(num);\n  }\n\n  return (\n    <div className={containerClass}>\n      {isSunny(whetherCode) ? (\n        <img src={sunnyImg} alt=\"good weather\" className={imgClass} />\n      ) : (\n        <img src={cloudImg} alt=\"bad weather\" className={imgClass} />\n      )}\n    </div>\n  );\n}\n"
+        }
+    ]
+}

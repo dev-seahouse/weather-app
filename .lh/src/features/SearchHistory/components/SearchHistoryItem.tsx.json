@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 8,
+            "activePatchIndex": 54,
             "patches": [
                 {
                     "date": 1716040098681,
@@ -40,6 +40,190 @@
                 {
                     "date": 1716041089976,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,15 +30,9 @@\n           {new Date(history.timeStamp).toLocaleString()}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n-        <Button\n-          variant=\"ghost\"\n-          size=\"icon\"\n-          className={`\n-          size-[2.125rem] p-0 text-white\n-        `}\n-        >\n+        <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n           <SearchIconRound className=\"size-full text-sm text-white\" />\n         </Button>\n         <Button\n           variant=\"ghost\"\n"
+                },
+                {
+                    "date": 1716048017674,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n         <div className=\"text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-xs font-normal text-[rgba(255,255,255,0.5)]\">\n-          {new Date(history.timeStamp).toLocaleString()}\n+          {formathistory.timeStamp}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n         <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n"
+                },
+                {
+                    "date": 1716048044949,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n         <div className=\"text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-xs font-normal text-[rgba(255,255,255,0.5)]\">\n-          {formathistory.timeStamp}\n+          {formatTimeStamp(history.timeStamp)}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n         <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n"
+                },
+                {
+                    "date": 1716048067473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n } from \"@/stores/weather/slices/searchHistorySlice.types\";\n import {\n   useDeleteSearchHistory,\n } from \"@/stores/weather/useWeatherStore.selectors\";\n+import { formatTimestamp } from \"@/utils/formatTimeStamp\";\n \n export const SearchHistoryItem: React.FC<{\n   history: SearchHistoryItemType;\n }> = ({ history }) => {\n@@ -26,9 +27,9 @@\n         <div className=\"text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-xs font-normal text-[rgba(255,255,255,0.5)]\">\n-          {formatTimeStamp(history.timeStamp)}\n+          {formatTimestamp(history.timeStamp)}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n         <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n"
+                },
+                {
+                    "date": 1716048146489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n } from \"@/stores/weather/slices/searchHistorySlice.types\";\n import {\n   useDeleteSearchHistory,\n } from \"@/stores/weather/useWeatherStore.selectors\";\n-import { formatTimestamp } from \"@/utils/formatTimeStamp\";\n+import { formatUnixTimestamp } from \"@/utils/formatTimeStamp\";\n \n export const SearchHistoryItem: React.FC<{\n   history: SearchHistoryItemType;\n }> = ({ history }) => {\n@@ -27,9 +27,9 @@\n         <div className=\"text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-xs font-normal text-[rgba(255,255,255,0.5)]\">\n-          {formatTimestamp(history.timeStamp)}\n+          {formatUnixTimestamp(history.timeStamp)}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n         <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n"
+                },
+                {
+                    "date": 1716048201722,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n } from \"@/stores/weather/slices/searchHistorySlice.types\";\n import {\n   useDeleteSearchHistory,\n } from \"@/stores/weather/useWeatherStore.selectors\";\n-import { formatUnixTimestamp } from \"@/utils/formatTimeStamp\";\n \n export const SearchHistoryItem: React.FC<{\n   history: SearchHistoryItemType;\n }> = ({ history }) => {\n@@ -27,9 +26,10 @@\n         <div className=\"text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-xs font-normal text-[rgba(255,255,255,0.5)]\">\n-          {formatUnixTimestamp(history.timeStamp)}\n+          {/* {formatUnixTimestamp(history.timeStamp)} */}\n+          {history.timeStamp}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n         <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n"
+                },
+                {
+                    "date": 1716048381796,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,10 +26,9 @@\n         <div className=\"text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-xs font-normal text-[rgba(255,255,255,0.5)]\">\n-          {/* {formatUnixTimestamp(history.timeStamp)} */}\n-          {history.timeStamp}\n+          {formatIsohistory.timeStamp}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n         <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n"
+                },
+                {
+                    "date": 1716048410335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n         <div className=\"text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-xs font-normal text-[rgba(255,255,255,0.5)]\">\n-          {formatIsohistory.timeStamp}\n+          {formatIsoDateString(history.timeStamp)}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n         <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n"
+                },
+                {
+                    "date": 1716048437929,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n } from \"@/stores/weather/slices/searchHistorySlice.types\";\n import {\n   useDeleteSearchHistory,\n } from \"@/stores/weather/useWeatherStore.selectors\";\n+import { formatISODateString } from \"@/utils/formatISODateString\";\n \n export const SearchHistoryItem: React.FC<{\n   history: SearchHistoryItemType;\n }> = ({ history }) => {\n@@ -26,9 +27,9 @@\n         <div className=\"text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-xs font-normal text-[rgba(255,255,255,0.5)]\">\n-          {formatIsoDateString(history.timeStamp)}\n+          {formatISODateString(history.timeStamp)}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n         <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n"
+                },
+                {
+                    "date": 1716048885162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         <div className=\"text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-xs font-normal text-[rgba(255,255,255,0.5)]\">\n-          {formatISODateString(history.timeStamp)}\n+          {formatISODateString(history.timeStamp).toLowerCase()}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n         <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n"
+                },
+                {
+                    "date": 1716049090320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n       <div>\n         <div className=\"text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n-        <div className=\"text-xs font-normal text-[rgba(255,255,255,0.5)]\">\n+        <div className=\"text-[0.625rem] font-normal text-[rgba(255,255,255,0.5)]\">\n           {formatISODateString(history.timeStamp).toLowerCase()}\n         </div>\n       </div>\n       <div className=\"flex items-center gap-2\">\n"
+                },
+                {
+                    "date": 1716049133990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,8 +30,9 @@\n         <div className=\"text-[0.625rem] font-normal text-[rgba(255,255,255,0.5)]\">\n           {formatISODateString(history.timeStamp).toLowerCase()}\n         </div>\n       </div>\n+\n       <div className=\"flex items-center gap-2\">\n         <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n           <SearchIconRound className=\"size-full text-sm text-white\" />\n         </Button>\n"
+                },
+                {
+                    "date": 1716049146484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,22 +16,20 @@\n }> = ({ history }) => {\n   const deleteHistory = useDeleteSearchHistory();\n \n   return (\n-    <div\n+    <\n       className={`\n         mb-4 flex items-center justify-between rounded-lg\n         bg-[rgba(26,26,26,0.5)] p-4\n       `}\n     >\n-      <div>\n         <div className=\"text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-[0.625rem] font-normal text-[rgba(255,255,255,0.5)]\">\n           {formatISODateString(history.timeStamp).toLowerCase()}\n         </div>\n-      </div>\n \n       <div className=\"flex items-center gap-2\">\n         <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n           <SearchIconRound className=\"size-full text-sm text-white\" />\n"
+                },
+                {
+                    "date": 1716049164896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,20 +16,22 @@\n }> = ({ history }) => {\n   const deleteHistory = useDeleteSearchHistory();\n \n   return (\n-    <\n+    <div\n       className={`\n         mb-4 flex items-center justify-between rounded-lg\n         bg-[rgba(26,26,26,0.5)] p-4\n       `}\n     >\n-        <div className=\"text-sm font-normal text-white\">\n+      <div>\n+        <div className=\"mb-[2pxj] text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-[0.625rem] font-normal text-[rgba(255,255,255,0.5)]\">\n           {formatISODateString(history.timeStamp).toLowerCase()}\n         </div>\n+      </div>\n \n       <div className=\"flex items-center gap-2\">\n         <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n           <SearchIconRound className=\"size-full text-sm text-white\" />\n"
+                },
+                {
+                    "date": 1716049171292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n   return (\n     <div\n       className={`\n         mb-4 flex items-center justify-between rounded-lg\n-        bg-[rgba(26,26,26,0.5)] p-4\n+        bg-[rgba(26,26,26,0.5)]p-4\n       `}\n     >\n       <div>\n         <div className=\"mb-[2pxj] text-sm font-normal text-white\">\n"
+                },
+                {
+                    "date": 1716049177376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,14 +18,14 @@\n \n   return (\n     <div\n       className={`\n-        mb-4 flex items-center justify-between rounded-lg\n-        bg-[rgba(26,26,26,0.5)]p-4\n+        bg-[rgba(26,26,26,0.5)]p-4 mb-4 flex items-center justify-between\n+        rounded-lg\n       `}\n     >\n       <div>\n-        <div className=\"mb-[2pxj] text-sm font-normal text-white\">\n+        <div className=\"mb-[2px] text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-[0.625rem] font-normal text-[rgba(255,255,255,0.5)]\">\n           {formatISODateString(history.timeStamp).toLowerCase()}\n"
+                },
+                {
+                    "date": 1716049190578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,14 +18,14 @@\n \n   return (\n     <div\n       className={`\n-        bg-[rgba(26,26,26,0.5)]p-4 mb-4 flex items-center justify-between\n-        rounded-lg\n+        mb-4 flex items-center justify-between rounded-lg\n+        bg-[rgba(26,26,26,0.5)] p-4\n       `}\n     >\n       <div>\n-        <div className=\"mb-[2px] text-sm font-normal text-white\">\n+        <div className=\"text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-[0.625rem] font-normal text-[rgba(255,255,255,0.5)]\">\n           {formatISODateString(history.timeStamp).toLowerCase()}\n"
+                },
+                {
+                    "date": 1716049198843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         bg-[rgba(26,26,26,0.5)] p-4\n       `}\n     >\n       <div>\n-        <div className=\"text-sm font-normal text-white\">\n+        <div className=\"mb-[2px] text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-[0.625rem] font-normal text-[rgba(255,255,255,0.5)]\">\n           {formatISODateString(history.timeStamp).toLowerCase()}\n"
+                },
+                {
+                    "date": 1716049293845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \n   return (\n     <div\n       className={`\n-        mb-4 flex items-center justify-between rounded-lg\n+        mb-4 flex items-center justify-between rounded-sm\n         bg-[rgba(26,26,26,0.5)] p-4\n       `}\n     >\n       <div>\n"
+                },
+                {
+                    "date": 1716049333555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \n   return (\n     <div\n       className={`\n-        mb-4 flex items-center justify-between rounded-sm\n+        mb-4 flex items-center justify-between rounded-3xl\n         bg-[rgba(26,26,26,0.5)] p-4\n       `}\n     >\n       <div>\n"
+                },
+                {
+                    "date": 1716049393320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \n   return (\n     <div\n       className={`\n-        mb-4 flex items-center justify-between rounded-3xl\n+        mb-4 flex items-center justify-between rounded-2xl\n         bg-[rgba(26,26,26,0.5)] p-4\n       `}\n     >\n       <div>\n"
+                },
+                {
+                    "date": 1716049573797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n         </div>\n       </div>\n \n       <div className=\"flex items-center gap-2\">\n-        <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n+        <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0 hover:\">\n           <SearchIconRound className=\"size-full text-sm text-white\" />\n         </Button>\n         <Button\n           variant=\"ghost\"\n"
+                },
+                {
+                    "date": 1716049586082,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n         </div>\n       </div>\n \n       <div className=\"flex items-center gap-2\">\n-        <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0 hover:\">\n+        <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n           <SearchIconRound className=\"size-full text-sm text-white\" />\n         </Button>\n         <Button\n           variant=\"ghost\"\n"
+                },
+                {
+                    "date": 1716049598321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,15 @@\n         </div>\n       </div>\n \n       <div className=\"flex items-center gap-2\">\n-        <Button variant=\"ghost\" size=\"icon\" className=\"size-[2.125rem] p-0\">\n+        <Button\n+          variant=\"ghost\"\n+          size=\"icon\"\n+          className={`\n+          size-[2.125rem] bg-red-100 p-0\n+        `}\n+        >\n           <SearchIconRound className=\"size-full text-sm text-white\" />\n         </Button>\n         <Button\n           variant=\"ghost\"\n"
+                },
+                {
+                    "date": 1716049618231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,11 +35,9 @@\n       <div className=\"flex items-center gap-2\">\n         <Button\n           variant=\"ghost\"\n           size=\"icon\"\n-          className={`\n-          size-[2.125rem] bg-red-100 p-0\n-        `}\n+          className={`size-[2.125rem] hover:bg-white p-0`}\n         >\n           <SearchIconRound className=\"size-full text-sm text-white\" />\n         </Button>\n         <Button\n"
+                },
+                {
+                    "date": 1716049623816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,13 @@\n       <div className=\"flex items-center gap-2\">\n         <Button\n           variant=\"ghost\"\n           size=\"icon\"\n-          className={`size-[2.125rem] hover:bg-white p-0`}\n+          className={`\n+            size-[2.125rem] p-0\n+\n+            hover:bg-white/[.5]\n+          `}\n         >\n           <SearchIconRound className=\"size-full text-sm text-white\" />\n         </Button>\n         <Button\n"
+                },
+                {
+                    "date": 1716049631660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n           size=\"icon\"\n           className={`\n             size-[2.125rem] p-0\n \n-            hover:bg-white/[.5]\n+            hover:bg-white/[.7]\n           `}\n         >\n           <SearchIconRound className=\"size-full text-sm text-white\" />\n         </Button>\n"
+                },
+                {
+                    "date": 1716049638473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n           size=\"icon\"\n           className={`\n             size-[2.125rem] p-0\n \n-            hover:bg-white/[.7]\n+            hover:bg-white/[.3]\n           `}\n         >\n           <SearchIconRound className=\"size-full text-sm text-white\" />\n         </Button>\n"
+                },
+                {
+                    "date": 1716049660960,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,13 @@\n         </Button>\n         <Button\n           variant=\"ghost\"\n           size=\"icon\"\n-          className=\"size-[2.125rem] p-0\"\n+          className={`\n+            size-[2.125rem] p-0\n+\n+            hover:bg-white/[.3]\n+          `}\n           onClick={() => deleteHistory(history.id)}\n         >\n           <DeleteIconRound className=\"size-full\" />\n         </Button>\n"
+                },
+                {
+                    "date": 1716050641622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         mb-4 flex items-center justify-between rounded-2xl\n         bg-[rgba(26,26,26,0.5)] p-4\n       `}\n     >\n-      <div>\n+      <div className=\"sm:flex\">\n         <div className=\"mb-[2px] text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-[0.625rem] font-normal text-[rgba(255,255,255,0.5)]\">\n"
+                },
+                {
+                    "date": 1716050658448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         mb-4 flex items-center justify-between rounded-2xl\n         bg-[rgba(26,26,26,0.5)] p-4\n       `}\n     >\n-      <div className=\"sm:flex\">\n+      <div className=\"sm:flex sm:items-center\">\n         <div className=\"mb-[2px] text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-[0.625rem] font-normal text-[rgba(255,255,255,0.5)]\">\n"
+                },
+                {
+                    "date": 1716051070667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,15 @@\n         mb-4 flex items-center justify-between rounded-2xl\n         bg-[rgba(26,26,26,0.5)] p-4\n       `}\n     >\n-      <div className=\"sm:flex sm:items-center\">\n+      <div\n+        className={`\n+        grow\n+\n+        sm:flex sm:items-center\n+      `}\n+      >\n         <div className=\"mb-[2px] text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n         <div className=\"text-[0.625rem] font-normal text-[rgba(255,255,255,0.5)]\">\n"
+                },
+                {
+                    "date": 1716051133141,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,12 +24,12 @@\n       `}\n     >\n       <div\n         className={`\n-        grow\n+          grow\n \n-        sm:flex sm:items-center\n-      `}\n+          sm:flex sm:items-center sm:justify-between\n+        `}\n       >\n         <div className=\"mb-[2px] text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n"
+                },
+                {
+                    "date": 1716051149967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n       <div\n         className={`\n           grow\n \n-          sm:flex sm:items-center sm:justify-between\n+          sm:flex sm:items-center sm:justify-between sm:pr-2\n         `}\n       >\n         <div className=\"mb-[2px] text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n"
+                },
+                {
+                    "date": 1716051158559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n       <div\n         className={`\n           grow\n \n-          sm:flex sm:items-center sm:justify-between sm:pr-2\n+          sm:flex sm:items-center sm:justify-between sm:pr-3\n         `}\n       >\n         <div className=\"mb-[2px] text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n"
+                },
+                {
+                    "date": 1716051195221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,15 @@\n       >\n         <div className=\"mb-[2px] text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n-        <div className=\"text-[0.625rem] font-normal text-[rgba(255,255,255,0.5)]\">\n+        <div\n+          className={`\n+          text-[0.625rem] font-normal text-[rgba(255,255,255,0.5)]\n+\n+          sm:text-[0.875rem]\n+        `}\n+        >\n           {formatISODateString(history.timeStamp).toLowerCase()}\n         </div>\n       </div>\n \n"
+                },
+                {
+                    "date": 1716051215732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,14 +32,15 @@\n       >\n         <div className=\"mb-[2px] text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n+\n         <div\n           className={`\n-          text-[0.625rem] font-normal text-[rgba(255,255,255,0.5)]\n+            text-[0.625rem] font-normal text-[rgba(255,255,255,0.5)]\n \n-          sm:text-[0.875rem]\n-        `}\n+            sm:text-[0.875rem]\n+          `}\n         >\n           {formatISODateString(history.timeStamp).toLowerCase()}\n         </div>\n       </div>\n"
+                },
+                {
+                    "date": 1716051235436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n \n           sm:flex sm:items-center sm:justify-between sm:pr-3\n         `}\n       >\n-        <div className=\"mb-[2px] text-sm font-normal text-white\">\n+        <div className=\"sm-text-[1rem] mb-[2px] text-sm font-normal text-white\">\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n \n         <div\n"
+                },
+                {
+                    "date": 1716051243602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,15 @@\n \n           sm:flex sm:items-center sm:justify-between sm:pr-3\n         `}\n       >\n-        <div className=\"sm-text-[1rem] mb-[2px] text-sm font-normal text-white\">\n+        <div\n+          className={`\n+          mb-[2px] text-sm font-normal text-white\n+\n+          sm:text-[1rem]\n+        `}\n+        >\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n \n         <div\n"
+                },
+                {
+                    "date": 1716057240706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,10 @@\n   history: SearchHistoryItemType;\n }> = ({ history }) => {\n   const deleteHistory = useDeleteSearchHistory();\n \n+  function handleSearchButtonClick() {}\n+\n   return (\n     <div\n       className={`\n         mb-4 flex items-center justify-between rounded-2xl\n@@ -31,12 +33,12 @@\n         `}\n       >\n         <div\n           className={`\n-          mb-[2px] text-sm font-normal text-white\n+            mb-[2px] text-sm font-normal text-white\n \n-          sm:text-[1rem]\n-        `}\n+            sm:text-[1rem]\n+          `}\n         >\n           {history.locationInfo.regionName}, {history.locationInfo.countryCode}\n         </div>\n \n"
+                },
+                {
+                    "date": 1716057316785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,14 @@\n export const SearchHistoryItem: React.FC<{\n   history: SearchHistoryItemType;\n }> = ({ history }) => {\n   const deleteHistory = useDeleteSearchHistory();\n+  const updateLocation = useUpdateLocation();\n \n-  function handleSearchButtonClick() {}\n+  function handleSearchButtonClick() {\n \n+  }\n+\n   return (\n     <div\n       className={`\n         mb-4 flex items-center justify-between rounded-2xl\n"
+                },
+                {
+                    "date": 1716057330797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n export const SearchHistoryItem: React.FC<{\n   history: SearchHistoryItemType;\n }> = ({ history }) => {\n   const deleteHistory = useDeleteSearchHistory();\n-  const updateLocation = useUpdateLocation();\n+  const updateLocation = useSetLocation();\n \n   function handleSearchButtonClick() {\n \n   }\n"
+                },
+                {
+                    "date": 1716057355315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,21 +7,20 @@\n   SearchHistoryItem as SearchHistoryItemType,\n } from \"@/stores/weather/slices/searchHistorySlice.types\";\n import {\n   useDeleteSearchHistory,\n+  useSelectLocationInfo,\n } from \"@/stores/weather/useWeatherStore.selectors\";\n import { formatISODateString } from \"@/utils/formatISODateString\";\n \n export const SearchHistoryItem: React.FC<{\n   history: SearchHistoryItemType;\n }> = ({ history }) => {\n   const deleteHistory = useDeleteSearchHistory();\n-  const updateLocation = useSetLocation();\n+  const updateLocation = useSelectLocationInfo();\n \n-  function handleSearchButtonClick() {\n+  function handleSearchButtonClick() {}\n \n-  }\n-\n   return (\n     <div\n       className={`\n         mb-4 flex items-center justify-between rounded-2xl\n"
+                },
+                {
+                    "date": 1716057385863,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,11 @@\n }> = ({ history }) => {\n   const deleteHistory = useDeleteSearchHistory();\n   const updateLocation = useSelectLocationInfo();\n \n-  function handleSearchButtonClick() {}\n+  function handleSearchButtonClick() {\n+    updateLocation()\n+  }\n \n   return (\n     <div\n       className={`\n"
+                },
+                {
+                    "date": 1716057393277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   const deleteHistory = useDeleteSearchHistory();\n   const updateLocation = useSelectLocationInfo();\n \n   function handleSearchButtonClick() {\n-    updateLocation()\n+    updateLocation(history.locationInfo)\n   }\n \n   return (\n     <div\n"
+                },
+                {
+                    "date": 1716057403226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,20 +7,20 @@\n   SearchHistoryItem as SearchHistoryItemType,\n } from \"@/stores/weather/slices/searchHistorySlice.types\";\n import {\n   useDeleteSearchHistory,\n-  useSelectLocationInfo,\n+  useSetLocationInfo,\n } from \"@/stores/weather/useWeatherStore.selectors\";\n import { formatISODateString } from \"@/utils/formatISODateString\";\n \n export const SearchHistoryItem: React.FC<{\n   history: SearchHistoryItemType;\n }> = ({ history }) => {\n   const deleteHistory = useDeleteSearchHistory();\n-  const updateLocation = useSelectLocationInfo();\n+  const updateLocation = useSetLocationInfo();\n \n   function handleSearchButtonClick() {\n-    updateLocation(history.locationInfo)\n+    updateLocation(history.locationInfo);\n   }\n \n   return (\n     <div\n"
+                },
+                {
+                    "date": 1716057422293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,8 +58,9 @@\n       </div>\n \n       <div className=\"flex items-center gap-2\">\n         <Button\n+          onClick={handleSearchButtonClick}\n           variant=\"ghost\"\n           size=\"icon\"\n           className={`\n             size-[2.125rem] p-0\n"
                 }
             ],
             "date": 1716040098681,

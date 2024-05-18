@@ -1,12 +1,20 @@
 import type { PropsWithChildren } from "react";
 
-export function FullScreenBg({ children }: PropsWithChildren) {
+import { cn } from "@/utils/cn";
+
+export function FullScreenBg({
+  children,
+  className,
+}: PropsWithChildren<{ className?: string }>) {
   return (
     <div
-      className={`
-        h-dvh bg-[lightgray] bg-[url('assets/bg-dark.png')] bg-cover bg-center
-        bg-no-repeat
-      `}
+      className={cn(
+        `
+          h-dvh bg-[lightgray] bg-[url('assets/bg-dark.png')] bg-cover bg-center
+          bg-no-repeat
+        `,
+        className,
+      )}
     >
       {children}
     </div>

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 15,
+            "activePatchIndex": 33,
             "patches": [
                 {
                     "date": 1716045244419,
@@ -68,6 +68,78 @@
                 {
                     "date": 1716047610116,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,9 @@\n } from \"@/stores/weather/useWeatherStore.selectors\";\n import { cn } from \"@/utils/cn\";\n \n export function SearchHistory({ className }: { className: string }) {\n-  const getHistories = useGetSearchHistories();\n-  const histories = getHistories();\n+  const histories = useGetSearchHistories();\n \n   return (\n     <div\n       className={cn(\"w-full rounded-xl bg-[rgba(26,26,26,0.3)] p-4\", className)}\n"
+                },
+                {
+                    "date": 1716047884640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   return (\n     <div\n       className={cn(\"w-full rounded-xl bg-[rgba(26,26,26,0.3)] p-4\", className)}\n     >\n-      <h2 className=\"mb-4 text-base font-normal text-white\">Search History</h2>\n+      <h2 className=\"mb-4 text-sm font-normal text-white\">Search History</h2>\n       {histories.length === 0 ? (\n         <div className=\"text-sm font-normal text-white\">\n           No search history available.\n         </div>\n"
+                },
+                {
+                    "date": 1716049050585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,11 @@\n   return (\n     <div\n       className={cn(\"w-full rounded-xl bg-[rgba(26,26,26,0.3)] p-4\", className)}\n     >\n-      <h2 className=\"mb-4 text-sm font-normal text-white\">Search History</h2>\n+      <h2 className=\"mb-[1.62rem] text-sm font-normal text-white\">\n+        Search History\n+      </h2>\n       {histories.length === 0 ? (\n         <div className=\"text-sm font-normal text-white\">\n           No search history available.\n         </div>\n"
+                },
+                {
+                    "date": 1716049426541,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,12 @@\n   const histories = useGetSearchHistories();\n \n   return (\n     <div\n-      className={cn(\"w-full rounded-xl bg-[rgba(26,26,26,0.3)] p-4\", className)}\n+      className={cn(\n+        \"w-full rounded-3xl bg-[rgba(26,26,26,0.3)] p-4\",\n+        className,\n+      )}\n     >\n       <h2 className=\"mb-[1.62rem] text-sm font-normal text-white\">\n         Search History\n       </h2>\n"
+                },
+                {
+                    "date": 1716049459891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n   return (\n     <div\n       className={cn(\n-        \"w-full rounded-3xl bg-[rgba(26,26,26,0.3)] p-4\",\n+        \"w-full rounded-3xl bg-[rgba(26,26,26,0.3)] p-[1.38rem]\",\n         className,\n       )}\n     >\n       <h2 className=\"mb-[1.62rem] text-sm font-normal text-white\">\n"
+                },
+                {
+                    "date": 1716049473096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n   return (\n     <div\n       className={cn(\n-        \"w-full rounded-3xl bg-[rgba(26,26,26,0.3)] p-[1.38rem]\",\n+        \"w-full rounded-3xl bg-[rgba(26,26,26,0.3)] py-[1.38rem]\",\n         className,\n       )}\n     >\n       <h2 className=\"mb-[1.62rem] text-sm font-normal text-white\">\n"
+                },
+                {
+                    "date": 1716049490377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n   return (\n     <div\n       className={cn(\n-        \"w-full rounded-3xl bg-[rgba(26,26,26,0.3)] py-[1.38rem]\",\n+        \"w-full rounded-3xl bg-[rgba(26,26,26,0.3)] px-5 py-[1.38rem]\",\n         className,\n       )}\n     >\n       <h2 className=\"mb-[1.62rem] text-sm font-normal text-white\">\n"
+                },
+                {
+                    "date": 1716050507839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,15 @@\n         \"w-full rounded-3xl bg-[rgba(26,26,26,0.3)] px-5 py-[1.38rem]\",\n         className,\n       )}\n     >\n-      <h2 className=\"mb-[1.62rem] text-sm font-normal text-white\">\n+      <h2\n+        className={`\n+        mb-[1.62rem] text-sm font-normal text-white\n+\n+        sm:text-base\n+      `}\n+      >\n         Search History\n       </h2>\n       {histories.length === 0 ? (\n         <div className=\"text-sm font-normal text-white\">\n"
+                },
+                {
+                    "date": 1716050542601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,12 +17,12 @@\n       )}\n     >\n       <h2\n         className={`\n-        mb-[1.62rem] text-sm font-normal text-white\n+          mb-[1.62rem] text-sm font-normal text-white\n \n-        sm:text-base\n-      `}\n+          sm:text-base\n+        `}\n       >\n         Search History\n       </h2>\n       {histories.length === 0 ? (\n"
+                },
+                {
+                    "date": 1716051349308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n       <h2\n         className={`\n           mb-[1.62rem] text-sm font-normal text-white\n \n-          sm:text-base\n+          sm:mb-[1] sm:text-base\n         `}\n       >\n         Search History\n       </h2>\n"
+                },
+                {
+                    "date": 1716051390751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n       <h2\n         className={`\n           mb-[1.62rem] text-sm font-normal text-white\n \n-          sm:mb-[1] sm:text-base\n+           sm:text-base\n         `}\n       >\n         Search History\n       </h2>\n"
+                },
+                {
+                    "date": 1716051398651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n       <h2\n         className={`\n           mb-[1.62rem] text-sm font-normal text-white\n \n-           sm:text-base\n+          sm:text-base\n         `}\n       >\n         Search History\n       </h2>\n"
+                },
+                {
+                    "date": 1716051425960,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n       )}\n     >\n       <h2\n         className={`\n-          mb-[1.62rem] text-sm font-normal text-white\n+          mb-[1.6rem] text-sm font-normal text-white\n \n           sm:text-base\n         `}\n       >\n"
+                },
+                {
+                    "date": 1716051435852,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n       )}\n     >\n       <h2\n         className={`\n-          mb-[1.6rem] text-sm font-normal text-white\n+          mb-[1.62rem] text-sm font-normal text-white\n \n           sm:text-base\n         `}\n       >\n"
+                },
+                {
+                    "date": 1716051449811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n       )}\n     >\n       <h2\n         className={`\n-          mb-[1.62rem] text-sm font-normal text-white\n+          mb-6 text-sm font-normal text-white\n \n           sm:text-base\n         `}\n       >\n"
+                },
+                {
+                    "date": 1716051480078,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,11 +17,11 @@\n       )}\n     >\n       <h2\n         className={`\n-          mb-6 text-sm font-normal text-white\n+          mb-[1.62rem] text-sm font-normal text-white\n \n-          sm:text-base\n+          sm:mb-6 sm:text-base\n         `}\n       >\n         Search History\n       </h2>\n"
+                },
+                {
+                    "date": 1716051490652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n       <h2\n         className={`\n           mb-[1.62rem] text-sm font-normal text-white\n \n-          sm:mb-6 sm:text-base\n+          sm:mb-4 sm:text-base\n         `}\n       >\n         Search History\n       </h2>\n"
+                },
+                {
+                    "date": 1716051500574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n       <h2\n         className={`\n           mb-[1.62rem] text-sm font-normal text-white\n \n-          sm:mb-4 sm:text-base\n+          sm:mb-5 sm:text-base\n         `}\n       >\n         Search History\n       </h2>\n"
+                },
+                {
+                    "date": 1716051606790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   useGetSearchHistories,\n } from \"@/stores/weather/useWeatherStore.selectors\";\n import { cn } from \"@/utils/cn\";\n \n-export function SearchHistory({ className }: { className: string }) {\n+export function SearchHistory({ className }: { className?: string }) {\n   const histories = useGetSearchHistories();\n \n   return (\n     <div\n"
                 }
             ],
             "date": 1716045244419,

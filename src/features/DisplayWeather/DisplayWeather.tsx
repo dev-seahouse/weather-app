@@ -1,35 +1,28 @@
-import { Spinner } from "@/components/ui/Spinner/Spinner";
+import { WeatherIcon } from "@/features/DisplayWeather/components/WeatherIcon";
 import {
   useGetWeatherQuery,
 } from "@/features/DisplayWeather/DisplayWeather.hooks";
 import {
   useSelectLocationInfo,
+  useSetWeatherInfo,
 } from "@/stores/weather/useWeatherStore.selectors";
 import { cn } from "@/utils/cn";
-import { formatTimestamp } from "@/utils/formatTimeStamp";
+import { formatUnixTimestamp } from "@/utils/formatTimeStamp";
 
 export function DisplayWeather({ className }: { className?: string }) {
   const { longitude, latitude, countryCode, regionName } =
     useSelectLocationInfo();
+  const updateWeatherInfo = useSetWeatherInfo();
 
   const {
     data: weatherResponse,
-    isLoading,
-    isFetching,
     isError,
+    isSuccess,
     dataUpdatedAt,
   } = useGetWeatherQuery({
     lon: longitude,
     lat: latitude,
   });
-
-  if (isLoading || isFetching) {
-    return (
-      <div className="flex w-full justify-center rounded-lg text-white">
-        <Spinner />
-      </div>
-    );
-  }
 
   if (isError) {
     return (
@@ -38,8 +31,19 @@ export function DisplayWeather({ className }: { className?: string }) {
       </div>
     );
   }
+
+  if (isSuccess) {
+    updateWeatherInfo({
+      temperature: weatherResponse.main.temp,
+      humidity: weatherResponse.main.humidity,
+      weatherCode: weatherResponse.weather[0].id,
+      weather: weatherResponse.weather[0].main,
+    });
+  }
+
   return (
     <div className={cn(`w-full rounded-lg text-white`, className)}>
+      <WeatherIcon whetherCode={weatherResponse?.weather[0].id} />
       <div
         className={`
           text-sm font-normal
@@ -114,7 +118,7 @@ export function DisplayWeather({ className }: { className?: string }) {
               sm:order-1 sm:mt-0 sm:text-base
             `}
           >
-            <div>{formatTimestamp(dataUpdatedAt)}</div>
+            <div>{formatUnixTimestamp(dataUpdatedAt).toLowerCase()}</div>
           </div>
         </div>
       </div>

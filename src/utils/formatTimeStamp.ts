@@ -1,7 +1,10 @@
 import { DateTime } from "luxon";
 
-export function formatTimestamp(timestamp: number): string {
+export function formatUnixTimestamp(
+  timestamp: number,
+  format = "dd-MM-yyyy hh:mma",
+): string {
   const dateTime = DateTime.fromMillis(timestamp);
 
-  return dateTime.toFormat("dd-MM-yyyy hh:mma");
+  return dateTime.toFormat(format);
 }
