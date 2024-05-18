@@ -18,7 +18,7 @@ export const currentWeatherSlice: WeatherStoreStateCreator<
       regionName: "",
     },
     weatherInfo: {
-      temperatureF: 0,
+      temperature: 0,
       weather: "",
       weatherCode: 0,
       humidity: 0,

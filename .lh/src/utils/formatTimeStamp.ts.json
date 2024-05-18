@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/utils/formatTimeStamp.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1716037325614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716037333029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,7 +18,4 @@\n   const formattedDate = `${day}-${month}-${year} ${formattedHours}:${minutes}${ampm}`;\n \n   return formattedDate;\n }\n-\n-const timestamp = 1716037250621;\n-console.log(formatTimestamp(timestamp)); // Output: \"01-09-2024 09:41am\"\n"
+                },
+                {
+                    "date": 1716037339415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-function formatTimestamp(timestamp) {\n+function formatTimestamp(timestamp: number) {\n   const date = new Date(timestamp);\n \n   // Extract components\n   const day = String(date.getUTCDate()).padStart(2, \"0\");\n"
+                },
+                {
+                    "date": 1716037347535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,21 +1,18 @@\n function formatTimestamp(timestamp: number) {\n   const date = new Date(timestamp);\n \n-  // Extract components\n   const day = String(date.getUTCDate()).padStart(2, \"0\");\n   const month = String(date.getUTCMonth() + 1).padStart(2, \"0\"); // Months are zero-based\n   const year = date.getUTCFullYear();\n   let hours = date.getUTCHours();\n   const minutes = String(date.getUTCMinutes()).padStart(2, \"0\");\n \n-  // Determine AM/PM\n   const ampm = hours >= 12 ? \"pm\" : \"am\";\n   hours = hours % 12;\n   hours = hours ? hours : 12; // The hour '0' should be '12'\n   const formattedHours = String(hours).padStart(2, \"0\");\n \n-  // Format the date string\n   const formattedDate = `${day}-${month}-${year} ${formattedHours}:${minutes}${ampm}`;\n \n   return formattedDate;\n }\n"
+                },
+                {
+                    "date": 1716038747505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,13 @@\n-function formatTimestamp(timestamp: number) {\n-  const date = new Date(timestamp);\n+import { DateTime } from \"luxon\";\n \n-  const day = String(date.getUTCDate()).padStart(2, \"0\");\n-  const month = String(date.getUTCMonth() + 1).padStart(2, \"0\"); // Months are zero-based\n-  const year = date.getUTCFullYear();\n-  let hours = date.getUTCHours();\n-  const minutes = String(date.getUTCMinutes()).padStart(2, \"0\");\n+function formatTimestamp(timestamp: number): string {\n+  // Convert the Unix timestamp to a DateTime object in local time\n+  const dateTime = DateTime.fromMillis(timestamp);\n \n-  const ampm = hours >= 12 ? \"pm\" : \"am\";\n-  hours = hours % 12;\n-  hours = hours ? hours : 12; // The hour '0' should be '12'\n-  const formattedHours = String(hours).padStart(2, \"0\");\n+  // Format the DateTime object to the desired format\n+  return dateTime.toFormat(\"dd-MM-yyyy hh:mma\");\n+}\n \n-  const formattedDate = `${day}-${month}-${year} ${formattedHours}:${minutes}${ampm}`;\n-\n-  return formattedDate;\n-}\n+// Example usage:\n+const timestamp = 1716037250621;\n+console.log(formatTimestamp(timestamp)); // Output: \"18-05-2024 01:23pm\"\n"
+                },
+                {
+                    "date": 1716039008865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,9 @@\n import { DateTime } from \"luxon\";\n \n function formatTimestamp(timestamp: number): string {\n-  // Convert the Unix timestamp to a DateTime object in local time\n   const dateTime = DateTime.fromMillis(timestamp);\n \n-  // Format the DateTime object to the desired format\n   return dateTime.toFormat(\"dd-MM-yyyy hh:mma\");\n }\n \n // Example usage:\n"
+                },
+                {
+                    "date": 1716039038128,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,7 @@\n import { DateTime } from \"luxon\";\n \n-function formatTimestamp(timestamp: number): string {\n+export function formatTimestamp(timestamp: number): string {\n   const dateTime = DateTime.fromMillis(timestamp);\n \n   return dateTime.toFormat(\"dd-MM-yyyy hh:mma\");\n }\n-\n-// Example usage:\n-const timestamp = 1716037250621;\n-console.log(formatTimestamp(timestamp)); // Output: \"18-05-2024 01:23pm\"\n"
+                }
+            ],
+            "date": 1716037325614,
+            "name": "Commit-0",
+            "content": "function formatTimestamp(timestamp) {\n  const date = new Date(timestamp);\n\n  // Extract components\n  const day = String(date.getUTCDate()).padStart(2, \"0\");\n  const month = String(date.getUTCMonth() + 1).padStart(2, \"0\"); // Months are zero-based\n  const year = date.getUTCFullYear();\n  let hours = date.getUTCHours();\n  const minutes = String(date.getUTCMinutes()).padStart(2, \"0\");\n\n  // Determine AM/PM\n  const ampm = hours >= 12 ? \"pm\" : \"am\";\n  hours = hours % 12;\n  hours = hours ? hours : 12; // The hour '0' should be '12'\n  const formattedHours = String(hours).padStart(2, \"0\");\n\n  // Format the date string\n  const formattedDate = `${day}-${month}-${year} ${formattedHours}:${minutes}${ampm}`;\n\n  return formattedDate;\n}\n\nconst timestamp = 1716037250621;\nconsole.log(formatTimestamp(timestamp)); // Output: \"01-09-2024 09:41am\"\n"
+        }
+    ]
+}

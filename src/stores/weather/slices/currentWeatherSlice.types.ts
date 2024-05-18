@@ -6,7 +6,7 @@ export interface LocationInfo {
 }
 
 export interface WeatherInfo {
-  temperatureF: number;
+  temperature: number;
   weather: string;
   weatherCode: number;
   humidity: number;

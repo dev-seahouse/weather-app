@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/icons/searchIconRound.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1716033661309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716033680815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-export function SearchIconRound() {\n+export function SearchIconRound({ className }: { className?: string }) {\n   return (\n     <svg\n       width=\"34\"\n       height=\"34\"\n"
+                },
+                {
+                    "date": 1716033688913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n       height=\"34\"\n       viewBox=\"0 0 34 34\"\n       fill=\"none\"\n       xmlns=\"http://www.w3.org/2000/svg\"\n+      className={className}\n     >\n       <circle\n         cx=\"17\"\n         cy=\"17\"\n"
+                }
+            ],
+            "date": 1716033661309,
+            "name": "Commit-0",
+            "content": "export function SearchIconRound() {\n  return (\n    <svg\n      width=\"34\"\n      height=\"34\"\n      viewBox=\"0 0 34 34\"\n      fill=\"none\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n    >\n      <circle\n        cx=\"17\"\n        cy=\"17\"\n        r=\"16\"\n        stroke=\"white\"\n        strokeOpacity=\"0.4\"\n        strokeWidth=\"2\"\n      />\n    </svg>\n  );\n}\n"
+        }
+    ]
+}

@@ -15,3 +15,5 @@ export const useSetLocationInfo = () => {
 export const useSetWeatherInfo = () => {
   return useWeatherStore(state => state.currentWeather.setWeatherInfo);
 };
+
+export const useAddSearchHistory = () => {};

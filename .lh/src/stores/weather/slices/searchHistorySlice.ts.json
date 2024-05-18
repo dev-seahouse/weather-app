@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/stores/weather/slices/searchHistorySlice.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1716035140544,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716035149350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,11 @@\n import { nanoid } from \"nanoid\"; // To generate unique IDs\n \n import type {\n+  WeatherStoreStateCreator,\n+} from \"@/stores/weather/useWeatherStore\";\n+\n+import type {\n   LocationInfo,\n   SearchHistorySlice,\n } from \"./path/to/your/types\";\n \n"
+                },
+                {
+                    "date": 1716035163071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,16 @@\n import { nanoid } from \"nanoid\"; // To generate unique IDs\n \n import type {\n+  LocationInfo,\n+} from \"@/stores/weather/slices/currentWeatherSlice.types\";\n+import type {\n+  SearchHistorySlice,\n+} from \"@/stores/weather/slices/searchHistorySlice.types\";\n+import type {\n   WeatherStoreStateCreator,\n } from \"@/stores/weather/useWeatherStore\";\n \n-import type {\n-  LocationInfo,\n-  SearchHistorySlice,\n-} from \"./path/to/your/types\";\n-\n export const searchHistorySlice: WeatherStoreStateCreator<\n   SearchHistorySlice\n > = set => ({\n   searchHistory: [],\n"
+                },
+                {
+                    "date": 1716035427243,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,11 @@\n } from \"@/stores/weather/slices/currentWeatherSlice.types\";\n import type {\n   SearchHistorySlice,\n } from \"@/stores/weather/slices/searchHistorySlice.types\";\n-import type {\n-  WeatherStoreStateCreator,\n+import {\n+  useWeatherStore,\n+  type WeatherStoreStateCreator,\n } from \"@/stores/weather/useWeatherStore\";\n \n export const searchHistorySlice: WeatherStoreStateCreator<\n   SearchHistorySlice\n"
+                },
+                {
+                    "date": 1716036475749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,4 @@\n-import { nanoid } from \"nanoid\"; // To generate unique IDs\n-\n import type {\n   LocationInfo,\n } from \"@/stores/weather/slices/currentWeatherSlice.types\";\n import type {\n@@ -15,19 +13,17 @@\n   SearchHistorySlice\n > = set => ({\n   searchHistory: [],\n \n-  addSearchHistory(locationInfo: LocationInfo) {\n-    set(state => ({\n-      searchHistory: [\n-        {\n-          id: nanoid(),\n-          locationInfo,\n-          timeStamp: Date.now(),\n-        },\n-        ...state.searchHistory,\n-      ],\n-    }));\n+  addSearchHistory(locationInfo: LocationInfo, weatherInfo: WeatherInfo) {\n+    set(state => {\n+      state.searchHistory.data.unshift({\n+        locationInfo,\n+        weatherInfo,\n+        timeStamp: new Date().toISOString(),\n+      });\n+      return state;\n+    });\n   },\n \n   getSearchHistories() {\n     return useWeatherStore\n"
+                },
+                {
+                    "date": 1716036494043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import { nanoid } from \"nanoid\"; // To generate unique IDs\n+\n import type {\n   LocationInfo,\n } from \"@/stores/weather/slices/currentWeatherSlice.types\";\n import type {\n@@ -13,17 +15,19 @@\n   SearchHistorySlice\n > = set => ({\n   searchHistory: [],\n \n-  addSearchHistory(locationInfo: LocationInfo, weatherInfo: WeatherInfo) {\n-    set(state => {\n-      state.searchHistory.data.unshift({\n-        locationInfo,\n-        weatherInfo,\n-        timeStamp: new Date().toISOString(),\n-      });\n-      return state;\n-    });\n+  addSearchHistory(locationInfo: LocationInfo) {\n+    set(state => ({\n+      searchHistory: [\n+        {\n+          id: nanoid(),\n+          locationInfo,\n+          timeStamp: Date.now(),\n+        },\n+        ...state.searchHistory,\n+      ],\n+    }));\n   },\n \n   getSearchHistories() {\n     return useWeatherStore\n"
+                },
+                {
+                    "date": 1716036771558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,39 +6,42 @@\n import type {\n   SearchHistorySlice,\n } from \"@/stores/weather/slices/searchHistorySlice.types\";\n import {\n-  useWeatherStore,\n   type WeatherStoreStateCreator,\n } from \"@/stores/weather/useWeatherStore\";\n \n export const searchHistorySlice: WeatherStoreStateCreator<\n   SearchHistorySlice\n-> = set => ({\n-  searchHistory: [],\n+> = (set, get) => ({\n+  searchHistory: {\n+    data: [],\n \n-  addSearchHistory(locationInfo: LocationInfo) {\n-    set(state => ({\n-      searchHistory: [\n-        {\n-          id: nanoid(),\n-          locationInfo,\n-          timeStamp: Date.now(),\n+    addSearchHistory(locationInfo: LocationInfo) {\n+      const newHistoryItem: SearchHistoryItem = {\n+        id: nanoid(),\n+        locationInfo,\n+        timeStamp: new Date().toISOString(),\n+      };\n+\n+      set(state => ({\n+        searchHistory: {\n+          ...state.searchHistory,\n+          data: [newHistoryItem, ...state.searchHistory.data],\n         },\n-        ...state.searchHistory,\n-      ],\n-    }));\n-  },\n+      }));\n+    },\n \n-  getSearchHistories() {\n-    return useWeatherStore\n-      .getState()\n-      .searchHistory.slice()\n-      .sort((a, b) => b.timeStamp - a.timeStamp);\n-  },\n+    deleteHistory(id: string) {\n+      set(state => ({\n+        searchHistory: {\n+          ...state.searchHistory,\n+          data: state.searchHistory.data.filter(item => item.id !== id),\n+        },\n+      }));\n+    },\n \n-  deleteHistory(id: string) {\n-    set(state => ({\n-      searchHistory: state.searchHistory.filter(item => item.id !== id),\n-    }));\n+    getSearchHistories() {\n+      return get().searchHistory.data;\n+    },\n   },\n });\n"
+                },
+                {
+                    "date": 1716036782164,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import type {\n   LocationInfo,\n } from \"@/stores/weather/slices/currentWeatherSlice.types\";\n import type {\n+  SearchHistoryItem,\n   SearchHistorySlice,\n } from \"@/stores/weather/slices/searchHistorySlice.types\";\n import {\n   type WeatherStoreStateCreator,\n"
+                }
+            ],
+            "date": 1716035140544,
+            "name": "Commit-0",
+            "content": "import { nanoid } from \"nanoid\"; // To generate unique IDs\n\nimport type {\n  LocationInfo,\n  SearchHistorySlice,\n} from \"./path/to/your/types\";\n\nexport const searchHistorySlice: WeatherStoreStateCreator<\n  SearchHistorySlice\n> = set => ({\n  searchHistory: [],\n\n  addSearchHistory(locationInfo: LocationInfo) {\n    set(state => ({\n      searchHistory: [\n        {\n          id: nanoid(),\n          locationInfo,\n          timeStamp: Date.now(),\n        },\n        ...state.searchHistory,\n      ],\n    }));\n  },\n\n  getSearchHistories() {\n    return useWeatherStore\n      .getState()\n      .searchHistory.slice()\n      .sort((a, b) => b.timeStamp - a.timeStamp);\n  },\n\n  deleteHistory(id: string) {\n    set(state => ({\n      searchHistory: state.searchHistory.filter(item => item.id !== id),\n    }));\n  },\n});\n"
+        }
+    ]
+}

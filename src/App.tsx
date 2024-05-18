@@ -32,22 +32,11 @@ function App() {
     item: Option<GetPlacesResponse["features"][0]>,
   ) {
     const newLocation = {
-      longitude: get(
-        item,
-        "value.properties.coordinates.longitude",
-        0,
-      ) as number,
-      latitude: get(item, "value.properties.coordinates.latitude", 0) as number,
-      countryCode: get(
-        item,
-        "value.properties.context.country.country_code",
-        "",
-      ) as string,
-      regionName: get(
-        item,
-        "value.properties.context.region.name",
-        "",
-      ) as string,
+      longitude: get(item, "value.properties.coordinates.longitude", 0) ?? 0,
+      latitude: get(item, "value.properties.coordinates.latitude", 0) ?? 0,
+      countryCode:
+        get(item, "value.properties.context.country.country_code", "") ?? "",
+      regionName: get(item, "value.properties.context.region.name", "") ?? "",
     } satisfies LocationInfo;
     setLocation(newLocation);
   }

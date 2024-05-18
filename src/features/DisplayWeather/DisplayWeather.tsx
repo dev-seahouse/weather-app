@@ -1,44 +1,44 @@
+import { Spinner } from "@/components/ui/Spinner/Spinner";
 import {
   useGetWeatherQuery,
 } from "@/features/DisplayWeather/DisplayWeather.hooks";
 import {
   useSelectLocationInfo,
-  useSetWeatherInfo,
 } from "@/stores/weather/useWeatherStore.selectors";
 import { cn } from "@/utils/cn";
+import { formatTimestamp } from "@/utils/formatTimeStamp";
 
 export function DisplayWeather({ className }: { className?: string }) {
   const { longitude, latitude, countryCode, regionName } =
     useSelectLocationInfo();
 
-  const setWeatherInfo = useSetWeatherInfo();
-
-  const { data: weatherResponse, isSuccess } = useGetWeatherQuery({
+  const {
+    data: weatherResponse,
+    isLoading,
+    isError,
+    dataUpdatedAt,
+  } = useGetWeatherQuery({
     lon: longitude,
     lat: latitude,
   });
 
-  if (isSuccess) {
-    setWeatherInfo({
-      temperatureF: weatherResponse.main.temp,
-      weather: weatherResponse.weather[0].main,
-      weatherCode: weatherResponse.weather[0].id,
-      humidity: weatherResponse.main.humidity,
-      timeStamp: new Date().toISOString(),
-    });
+  if (isLoading) {
+    return (
+      <div className="w-full rounded-lg text-white">
+        <Spinner />
+      </div>
+    );
   }
 
+  if (isError) {
+    return (
+      <div className="w-full rounded-lg text-white">
+        Error fetching weather data
+      </div>
+    );
+  }
   return (
-    <div
-      className={cn(
-        `
-          w-full rounded-lg text-white
-
-          sm:max-w-full
-        `,
-        className,
-      )}
-    >
+    <div className={cn(`w-full rounded-lg text-white`, className)}>
       <div
         className={`
           text-sm font-normal
@@ -57,7 +57,7 @@ export function DisplayWeather({ className }: { className?: string }) {
               sm:text-[6.6rem]
             `}
           >
-            26°
+            {Math.round(weatherResponse?.main.temp ?? 0)}°
           </div>
           <div
             className={`
@@ -113,7 +113,7 @@ export function DisplayWeather({ className }: { className?: string }) {
               sm:order-1 sm:mt-0 sm:text-base
             `}
           >
-            <div>01-09-2022 09:41am</div>
+            <div>{formatTimestamp(dataUpdatedAt)}</div>
           </div>
         </div>
       </div>

@@ -16,6 +16,7 @@ export async function getCurrentWeather(payload: GetCurrentWeatherRequest) {
     params: {
       ...payload,
       appid: apiKey,
+      units: "metric",
     },
   });
 }
