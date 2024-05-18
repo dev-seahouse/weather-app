@@ -8,7 +8,9 @@ import type { Option } from "@/components/ui/AutoComplete/AutoComplete.types";
 import { DisplayWeather } from "@/features/DisplayWeather";
 import SearchIcon from "@/icons/searchIcon";
 import { AppProvider } from "@/providers/AppProvider";
-import type { Location } from "@/stores/weather/slices/currentWeatherSlice.types";
+import type {
+  LocationInfo,
+} from "@/stores/weather/slices/currentWeatherSlice.types";
 import { useSetLocationInfo } from "@/stores/weather/useWeatherStore.selectors";
 import { get } from "@/utils/get";
 
@@ -38,7 +40,7 @@ function App() {
       latitude: get(item, "value.properties.coordinates.latitude", 0) as number,
       countryCode: get(
         item,
-        "properties.context.country.country_code",
+        "value.properties.context.country.country_code",
         "",
       ) as string,
       regionName: get(
@@ -46,7 +48,7 @@ function App() {
         "value.properties.context.region.name",
         "",
       ) as string,
-    } satisfies Location;
+    } satisfies LocationInfo;
     setLocation(newLocation);
   }
 

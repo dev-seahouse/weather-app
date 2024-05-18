@@ -2,7 +2,9 @@ import type {
   CurrentWeatherSlice,
   LocationInfo,
 } from "@/stores/weather/slices/currentWeatherSlice.types";
-import type { WeatherStoreStateCreator } from "@/stores/weather/useWeatherStore";
+import type {
+  WeatherStoreStateCreator,
+} from "@/stores/weather/useWeatherStore";
 
 export const currentWeatherSlice: WeatherStoreStateCreator<
   CurrentWeatherSlice

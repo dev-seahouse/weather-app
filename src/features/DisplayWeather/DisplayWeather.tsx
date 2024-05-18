@@ -59,8 +59,8 @@ export function DisplayWeather({ className }: { className?: string }) {
           className={`
             flex flex-col justify-end gap-1 whitespace-nowrap text-right
 
-            sm:relative sm:right-10 sm:grow sm:flex-row sm:items-end
-            sm:justify-between sm:gap-8 sm:text-left sm:text-base
+            sm:right-10 sm:grow sm:flex-row sm:items-end sm:justify-between
+            sm:text-left sm:text-base
           `}
         >
           <div
