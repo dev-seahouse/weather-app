@@ -29,9 +29,9 @@ export const SearchHistoryItem: React.FC<{
     const element = document.getElementById(`history-item-${history.id}`);
     if (element) {
       element.classList.add("animate-fadeOut");
-      setTimeout(() => deleteHistory(history.id), 500); // Duration matches the animation duration
+      setTimeout(() => deleteHistory(history.id), 200); // Duration matches the animation duration
     } else {
-      deleteHistory(history.id); // Fallback in case element is not found
+      throw new Error("Error deleting search history");
     }
   }
 

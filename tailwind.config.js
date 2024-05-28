@@ -95,7 +95,7 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         wiggle: 'wiggle 2.4s infinite ease-in-out',
-        fadeOut: 'fadeOut 0.3s forwards',
+        fadeOut: 'fadeOut 0.2s forwards',
       },
     },
   },
