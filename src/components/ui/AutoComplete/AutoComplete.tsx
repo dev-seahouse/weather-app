@@ -37,8 +37,9 @@ const AutoCompleteComponent = <T,>(
     popoverClassName,
     spinnerClassName,
     onOptionSelected,
+    debounceTimeout = 800,
   }: AutoCompleteProps<T>,
-  ref: React.Ref<HTMLInputElement>,
+  ref: React.ForwardedRef<HTMLInputElement>,
 ) => {
   const [internalValue, setInternalValue] = useState(value || "");
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -53,7 +54,7 @@ const AutoCompleteComponent = <T,>(
 
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const [debouncedValue] = useDebounce(currentValue, 800);
+  const [debouncedValue] = useDebounce(currentValue, debounceTimeout);
 
   const {
     data: suggestions,
@@ -83,11 +84,16 @@ const AutoCompleteComponent = <T,>(
     setTimeout(() => {
       // If the focus moves to the popover or stays within the input, do not close the popover
       const target = document.activeElement;
+      const inputElement =
+        inputRef && typeof inputRef === "object" ? inputRef.current : null;
+
+      if (!inputElement) return;
+
       if (
         popoverRef.current?.contains(target) ||
-        localInputRef.current?.contains(target)
+        inputElement?.contains(target)
       ) {
-        localInputRef.current?.focus();
+        inputElement?.focus();
         return;
       }
 
@@ -219,5 +225,5 @@ const AutoCompleteComponent = <T,>(
 };
 
 export const AutoComplete = forwardRef(AutoCompleteComponent) as <T>(
-  props: AutoCompleteProps<T> & { ref?: React.Ref<HTMLInputElement> },
+  props: AutoCompleteProps<T> & { ref?: React.ForwardedRef<HTMLInputElement> },
 ) => ReturnType<typeof AutoCompleteComponent>;
