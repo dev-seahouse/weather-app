@@ -39,7 +39,20 @@ export function SearchWeather() {
       latitude: get(item, "value.properties.coordinates.latitude", 0) ?? 0,
       countryCode:
         get(item, "value.properties.context.country.country_code", "") ?? "",
-      regionName: get(item, "value.properties.context.region.name", "") ?? "",
+      regionName:
+        get(
+          item,
+          "value.properties.context.neighborhood.name",
+          get(
+            item,
+            "value.properties.context.place.name",
+            get(
+              item,
+              "value.properties.context.region.name",
+              get(item, "value.properties.context.country.name"),
+            ),
+          ),
+        ) ?? "",
     } satisfies LocationInfo;
     setLocation(newLocation);
     addHistory(newLocation);
