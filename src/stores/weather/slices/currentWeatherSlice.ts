@@ -1,7 +1,6 @@
 import type {
   CurrentWeatherSlice,
   LocationInfo,
-  WeatherInfo,
 } from "@/stores/weather/slices/currentWeatherSlice.types";
 import type {
   WeatherStoreStateCreator,
@@ -17,23 +16,10 @@ export const currentWeatherSlice: WeatherStoreStateCreator<
       countryCode: "",
       regionName: "",
     },
-    weatherInfo: {
-      temperature: 0,
-      weather: "",
-      weatherCode: 0,
-      humidity: 0,
-      timeStamp: "",
-    },
     timeStamp: "",
     setLocationInfo(locationInfo: LocationInfo) {
       set(state => {
         state.currentWeather.locationInfo = locationInfo;
-        return state;
-      });
-    },
-    setWeatherInfo(weatherInfo: WeatherInfo) {
-      set(state => {
-        state.currentWeather.weatherInfo = weatherInfo;
         return state;
       });
     },

@@ -4,7 +4,6 @@ import {
 } from "@/features/DisplayWeather/DisplayWeather.hooks";
 import {
   useSelectLocationInfo,
-  useSetWeatherInfo,
 } from "@/stores/weather/useWeatherStore.selectors";
 import { cn } from "@/utils/cn";
 import { formatUnixTimestamp } from "@/utils/formatTimeStamp";
@@ -13,12 +12,9 @@ export function DisplayWeather({ className }: { className?: string }) {
   const { longitude, latitude, countryCode, regionName } =
     useSelectLocationInfo();
 
-  const updateWeatherInfo = useSetWeatherInfo();
-
   const {
     data: weatherResponse,
     isError,
-    isSuccess,
     dataUpdatedAt,
   } = useGetWeatherQuery({
     lon: longitude,
@@ -31,15 +27,6 @@ export function DisplayWeather({ className }: { className?: string }) {
         Error fetching weather data
       </div>
     );
-  }
-
-  if (isSuccess) {
-    updateWeatherInfo({
-      temperature: weatherResponse.main.temp,
-      humidity: weatherResponse.main.humidity,
-      weatherCode: weatherResponse.weather[0].id,
-      weather: weatherResponse.weather[0].main,
-    });
   }
 
   return (
