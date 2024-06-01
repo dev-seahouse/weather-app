@@ -1,4 +1,4 @@
-## ![Live demo](https://weather-app-swart-pi-79.vercel.app/)
+## [Live demo](https://weather-app-swart-pi-79.vercel.app/)
 
 ## How to start
 
