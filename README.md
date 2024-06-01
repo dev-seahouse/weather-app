@@ -1,3 +1,5 @@
+## ![Live demo](https://weather-app-swart-pi-79.vercel.app/)
+
 ## How to start
 
 - npm install -g pnpm
